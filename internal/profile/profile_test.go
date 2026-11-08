@@ -42,6 +42,28 @@ func TestRejectUnrestrictedOrInjectedRouting(t *testing.T) {
 	}
 }
 
+func TestExplicitAllRouting(t *testing.T) {
+	for _, mode := range []string{"proxy", "tun"} {
+		params, err := Build([]byte(`{"outbounds":[{"type":"http","server":"127.0.0.1","server_port":8888}]}`), Options{Mode: mode, All: true})
+		if err != nil {
+			t.Fatal(err)
+		}
+		var local map[string]any
+		if err := json.Unmarshal([]byte(params.LocalOptionsJSON), &local); err != nil {
+			t.Fatal(err)
+		}
+		if _, restricted := local["split_tunnel"]; restricted || local["bypass_lan"] != true {
+			t.Fatalf("unexpected full-tunnel options: %v", local)
+		}
+		if _, err := Build([]byte(params.Configuration), Options{Mode: mode, All: true, Domains: []string{"example.com"}}); err == nil {
+			t.Fatal("accepted conflicting routing scopes")
+		}
+	}
+	if err := (Options{Mode: "invalid", All: true}).Validate(); err == nil {
+		t.Fatal("accepted invalid inbound mode")
+	}
+}
+
 func TestInvalidConfigDoesNotLeakCredentials(t *testing.T) {
 	secret := "private-password"
 	_, err := Build([]byte(`{"outbounds":[{"password":"`+secret+`"} invalid`), Options{Mode: "proxy", Domains: []string{"example.com"}})

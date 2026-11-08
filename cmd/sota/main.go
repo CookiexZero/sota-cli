@@ -33,6 +33,7 @@ type options struct {
 	config    string
 	mode      string
 	domains   domains
+	all       bool
 	timeout   time.Duration
 	json      bool
 	corePath  string
@@ -59,7 +60,7 @@ func main() {
 
 func execute(ctx context.Context, args []string, out, logs io.Writer) error {
 	if len(args) == 0 || args[0] == "help" || args[0] == "--help" || args[0] == "-h" {
-		fmt.Fprint(out, `Sota CLI - domain-scoped control of the Sota VPN core
+		fmt.Fprint(out, `Sota CLI - control of the Sota VPN core
 
 Usage: sota <command> [options]
 
@@ -82,6 +83,7 @@ Connection options:
   --server ID       Server ID from sota servers (default: first recommended)
   --transport NAME  Select a transport (for example vless or hysteria2)
   --domain NAME     Exact domain to route through the selected outbound (repeatable)
+  --all             Route all internet destinations through VPN; LAN stays direct
   --mode MODE       proxy (default) or tun
 
 Run options:
@@ -97,7 +99,7 @@ Account options:
   --env-file FILE   Read SOTA_SUB_KEY from a dotenv file
   --state-dir DIR   Credential directory (default /var/lib/sota-cli)
 
-Unrestricted routing is disabled. Proxy clients must resolve names through
+Choose --domain or explicit --all. Proxy clients should resolve names through
 the proxy (for example socks5h). The core chooses its proxy port; read status.
 `)
 		return nil
@@ -117,6 +119,7 @@ the proxy (for example socks5h). The core chooses its proxy port; read status.
 		fs.StringVar(&o.config, "config", "", "Outbounds-only JSON configuration")
 		fs.StringVar(&o.mode, "mode", "proxy", "Inbound mode: proxy or tun")
 		fs.Var(&o.domains, "domain", "Exact domain to route through the selected outbound; repeatable")
+		fs.BoolVar(&o.all, "all", false, "Route all internet destinations through VPN; mutually exclusive with --domain")
 		fs.IntVar(&o.server, "server", 0, "Sota server ID; default first recommended")
 		fs.StringVar(&o.transport, "transport", "", "Concrete transport type")
 	}
@@ -293,15 +296,12 @@ func readKey(o options) (string, error) {
 }
 
 func load(ctx context.Context, o options) (profile.StartParams, error) {
-	options := profile.Options{Mode: o.mode, Domains: o.domains}
-	if _, err := profile.Domains(o.domains); err != nil {
+	options := profile.Options{Mode: o.mode, Domains: o.domains, All: o.all}
+	if err := options.Validate(); err != nil {
 		return profile.StartParams{}, err
 	}
 	if o.config != "" {
 		return profile.Load(o.config, options)
-	}
-	if o.mode != "proxy" && o.mode != "tun" {
-		return profile.StartParams{}, errors.New("mode must be proxy or tun")
 	}
 	key, err := readKey(o)
 	if err != nil {
@@ -390,7 +390,11 @@ func run(ctx context.Context, o options, out, logs io.Writer) error {
 		return err
 	}
 	fmt.Fprintln(logs, "Core started:", c.Hello.CoreVersion)
-	fmt.Fprintln(logs, "Routing scope:", strings.Join(o.domains, ", "))
+	if o.all {
+		fmt.Fprintln(logs, "Routing scope: all internet destinations (LAN bypass enabled)")
+	} else {
+		fmt.Fprintln(logs, "Routing scope:", strings.Join(o.domains, ", "))
+	}
 	last := -1
 	ticker := time.NewTicker(time.Second)
 	defer ticker.Stop()

@@ -18,6 +18,21 @@ var label = regexp.MustCompile(`^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$`)
 type Options struct {
 	Mode    string
 	Domains []string
+	All     bool
+}
+
+func (o Options) Validate() error {
+	if o.Mode != "proxy" && o.Mode != "tun" {
+		return errors.New("mode must be proxy or tun")
+	}
+	if o.All {
+		if len(o.Domains) != 0 {
+			return errors.New("choose --all or --domain, not both")
+		}
+		return nil
+	}
+	_, err := Domains(o.Domains)
+	return err
 }
 
 type StartParams struct {
@@ -27,7 +42,7 @@ type StartParams struct {
 
 func Domains(input []string) ([]string, error) {
 	if len(input) == 0 {
-		return nil, errors.New("at least one --domain is required; unrestricted routing is disabled")
+		return nil, errors.New("at least one --domain or explicit --all is required")
 	}
 	seen := map[string]bool{}
 	var output []string
@@ -66,13 +81,10 @@ func Load(path string, options Options) (StartParams, error) {
 }
 
 func Build(data []byte, options Options) (StartParams, error) {
-	if options.Mode != "proxy" && options.Mode != "tun" {
-		return StartParams{}, errors.New("mode must be proxy or tun")
-	}
-	domains, err := Domains(options.Domains)
-	if err != nil {
+	if err := options.Validate(); err != nil {
 		return StartParams{}, err
 	}
+	var err error
 	var server map[string]json.RawMessage
 	if err = json.Unmarshal(data, &server); err != nil || server == nil {
 		return StartParams{}, errors.New("configuration must be a JSON object")
@@ -102,7 +114,12 @@ func Build(data []byte, options Options) (StartParams, error) {
 		"bypass_lan":    true,
 		"strict_route":  false,
 		"kill_switch":   false,
-		"split_tunnel":  map[string]any{"mode": "include", "domains": domains},
+	}
+	// Omitting split-tunnel rules sends internet traffic through the VPN.
+	// LAN bypass stays enabled for both scopes.
+	if !options.All {
+		domains, _ := Domains(options.Domains) // Validated above.
+		local["split_tunnel"] = map[string]any{"mode": "include", "domains": domains}
 	}
 	encoded, _ := json.Marshal(local)
 	configuration, _ := json.Marshal(server)

@@ -1,4 +1,4 @@
-"""Exercise the real core offline; only example.com may use the mock tunnel."""
+"""Exercise exact-domain and explicit full-tunnel routing with the real core."""
 
 import json
 import os
@@ -54,7 +54,10 @@ class Proxy(socketserver.StreamRequestHandler):
                 self.wfile.write(struct.pack("!H", len(response)) + response)
                 self.wfile.flush()
             return
-        assert first.startswith(("CONNECT example.com:80 ", "CONNECT 192.0.2.10:80 ")), first
+        expected = ["CONNECT example.com:80 ", "CONNECT 192.0.2.10:80 "]
+        if os.environ.get("SOTA_TEST_SCOPE") == "all":
+            expected.append("CONNECT 192.0.2.11:80 ")
+        assert first.startswith(tuple(expected)), first
         read_headers(self.rfile)
         self.wfile.write(b"HTTP/1.1 200 OK\r\nContent-Length: 8\r\nConnection: close\r\n\r\nTUNNELED")
 
@@ -108,8 +111,12 @@ def tun_request():
         sock.sendto(query, ("1.1.1.1", 53))
         response, _ = sock.recvfrom(4096)
         assert b"\xc0\x00\x02\x0a" in response
-    with socket.create_connection(("192.0.2.10", 80), timeout=8) as sock:
-        sock.sendall(b"GET / HTTP/1.1\r\nHost: example.com\r\nConnection: close\r\n\r\n")
+    return tun_tcp_request("192.0.2.10", "example.com")
+
+
+def tun_tcp_request(address, host):
+    with socket.create_connection((address, 80), timeout=8) as sock:
+        sock.sendall(f"GET / HTTP/1.1\r\nHost: {host}\r\nConnection: close\r\n\r\n".encode())
         response = b""
         while chunk := sock.recv(4096):
             response += chunk
@@ -118,13 +125,15 @@ def tun_request():
 
 def main():
     mode = os.environ.get("SOTA_TEST_MODE", "proxy")
+    all_traffic = os.environ.get("SOTA_TEST_SCOPE") == "all"
+    scope = ["--all"] if all_traffic else ["--domain", "example.com"]
     proxy = Server(("127.0.0.1", 19090), Proxy)
     direct = Server(("127.0.0.1", 19091), Direct)
     for server in (proxy, direct):
         threading.Thread(target=server.serve_forever, daemon=True).start()
     config = pathlib.Path("/tmp/import.json")
     config.write_text(json.dumps({"outbounds": [{"type": "http", "tag": "vpn", "server": "127.0.0.1", "server_port": 19090}]}))
-    process = subprocess.Popen(["/sota", "run", "--core", "/kittend", "--config", str(config), "--domain", "example.com", "--mode", mode, "--socket", "/tmp/sota-integration.sock", "--state-dir", "/tmp/sota-integration"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    process = subprocess.Popen(["/sota", "run", "--core", "/kittend", "--config", str(config), *scope, "--mode", mode, "--socket", "/tmp/sota-integration.sock", "--state-dir", "/tmp/sota-integration"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     try:
         status = None
         for _ in range(100):
@@ -141,6 +150,9 @@ def main():
         assert not status["kill_switch"]["supported"]
         port = status.get("proxy_port")
         assert b"TUNNELED" in (tun_request() if mode == "tun" else request(port, "example.com", 80))
+        if all_traffic:
+            assert b"TUNNELED" in (tun_tcp_request("192.0.2.11", "unrelated.example") if mode == "tun" else request(port, "192.0.2.11", 80))
+            assert "192.0.2.11:80" in targets, targets
         initial_targets = targets.copy()
         assert dns_queries and all(domain == "example.com" for domain in dns_queries), dns_queries
         assert any(target in ("example.com:80", "192.0.2.10:80") for target in targets), targets
@@ -152,7 +164,7 @@ def main():
                 assert b"DIRECT" in sock.recv(4096)
         assert targets == initial_targets, targets
         # An unrelated destination must never reach the mock tunnel.
-        if mode == "proxy":
+        if mode == "proxy" and not all_traffic:
             try:
                 assert not request(port, "192.0.2.11", 80)
             except (OSError, EOFError):
@@ -162,8 +174,8 @@ def main():
         assert "Native kill switch supported: false" in cli("doctor").stdout
         assert cli("disconnect").returncode == 0
         assert json.loads(cli("status", "--json").stdout)["state"] == 0
-        assert cli("connect", "--config", str(config), "--domain", "example.com", "--mode", mode).returncode == 0
-        print(f"PASS ({mode}): handshake, status, exact-domain data routing, direct bypass, config validation, doctor, disconnect, reconnect")
+        assert cli("connect", "--config", str(config), *scope, "--mode", mode).returncode == 0
+        print(f"PASS ({mode}, scope={'all' if all_traffic else 'domain'}): handshake, status, data routing, LAN bypass, config validation, doctor, disconnect, reconnect")
     finally:
         process.terminate()
         stdout, stderr = process.communicate(timeout=10)

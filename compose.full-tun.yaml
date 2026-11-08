@@ -1,0 +1,14 @@
+services:
+  vpn:
+    image: sota-cli:full-tun
+    command:
+      - run
+      - --env-file
+      - /run/secrets/sota-env
+      - --mode
+      - tun
+      - --all
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN
