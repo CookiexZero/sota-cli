@@ -1,0 +1,39 @@
+services:
+  vpn:
+    image: sota-cli:dev
+    build: .
+    command:
+      - run
+      - --env-file
+      - /run/secrets/sota-env
+      - --mode
+      - proxy
+      - --domain
+      - ${SOTA_TEST_DOMAIN:-example.com}
+    secrets:
+      - sota-env
+    volumes:
+      - sota-state:/var/lib/sota-cli
+    tmpfs:
+      - /run/sota-cli
+      - /tmp
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 10s
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "sota", "health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
+
+secrets:
+  sota-env:
+    file: .env
+
+volumes:
+  sota-state:

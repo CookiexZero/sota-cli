@@ -1,0 +1,16 @@
+{
+  "amd64": {
+    "url": "https://sotacdn.com/releases/sota-connect/latest/sota-connect-linux-x64.deb",
+    "package_sha256": "383b8e5dee3efeead68c69e1cc27d90601299689f764e73fda5ea14afb9fa765",
+    "core_sha256": "4a11719b2734d0c1899ec16d46faded10fc059ee1ee91365417c2573b3e92f5c",
+    "package_version": "1.8.11+1892",
+    "elf_machine": 62
+  },
+  "arm64": {
+    "url": "https://sotacdn.com/releases/sota-connect/latest/sota-connect-linux-arm64.deb",
+    "package_sha256": "44ec209c690ed718879486341529dd89e01b3783790b306c2b5cfe7681ecedbd",
+    "core_sha256": "bde34f88ab454f2f8d7ee2c24dba2eff94da4371969d05f5c0b45faf3f824af8",
+    "package_version": "1.8.11+1892",
+    "elf_machine": 183
+  }
+}

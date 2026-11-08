@@ -1,0 +1,973 @@
+
+/var/folders/bh/72_ydyss1h7f3k0mb0dwk0740000gn/T/sota-deb-ayde7k58/data/usr/libexec/sota-connect/kittend:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000401000 <.text>:
+ 13610e0:      	leaq	-0xc8(%rsp), %r12
+ 13610e8:      	cmpq	0x10(%r14), %r12
+ 13610ec:      	jbe	0x1362485 <.text+0xf61485>
+ 13610f2:      	pushq	%rbp
+ 13610f3:      	movq	%rsp, %rbp
+ 13610f6:      	subq	$0x140, %rsp            # imm = 0x140
+ 13610fd:      	movq	%rax, 0x150(%rsp)
+ 1361105:      	movq	%rbx, 0x158(%rsp)
+ 136110d:      	movq	%rcx, 0x160(%rsp)
+ 1361115:      	movq	0x10(%rcx), %rdx
+ 1361119:      	movq	0x8(%rcx), %rsi
+ 136111d:      	nopl	(%rax)
+ 1361120:      	cmpq	$0x5, %rdx
+ 1361124:      	jne	0x1361427 <.text+0xf60427>
+ 136112a:      	cmpl	$0x6c6c6568, (%rsi)     # imm = 0x6C6C6568
+ 1361130:      	jne	0x1361427 <.text+0xf60427>
+ 1361136:      	cmpb	$0x6f, 0x4(%rsi)
+ 136113a:      	nopw	(%rax,%rax)
+ 1361140:      	jne	0x1361427 <.text+0xf60427>
+ 1361146:      	leaq	0x2c8d33(%rip), %rax    # 0x1629e80
+ 136114d:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361152:      	movq	%rax, 0x138(%rsp)
+ 136115a:      	movq	0x160(%rsp), %rcx
+ 1361162:      	movq	0x18(%rcx), %rdx
+ 1361166:      	movq	0x20(%rcx), %rbx
+ 136116a:      	movq	0x28(%rcx), %rcx
+ 136116e:      	leaq	0x10f0cb(%rip), %rdi    # 0x1470240
+ 1361175:      	movq	%rax, %rsi
+ 1361178:      	movq	%rdx, %rax
+ 136117b:      	nopl	(%rax,%rax)
+ 1361180:      	callq	0x771720 <.text+0x370720> CALL encoding/json.Unmarshal
+ 1361185:      	testq	%rax, %rax
+ 1361188:      	jne	0x136119c <.text+0xf6019c>
+ 136118a:      	movq	0x138(%rsp), %rdx
+ 1361192:      	cmpq	$0x1, (%rdx)
+ 1361196:      	je	0x1361233 <.text+0xf60233>
+ 136119c:      	movups	%xmm15, 0xc0(%rsp)
+ 13611a5:      	movups	%xmm15, 0xd0(%rsp)
+ 13611ae:      	movq	0x160(%rsp), %rcx
+ 13611b6:      	movq	(%rcx), %rcx
+ 13611b9:      	movq	%rcx, 0xc0(%rsp)
+ 13611c1:      	leaq	0x2c8c18(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 13611c8:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 13611cd:      	movq	$0x11, 0x8(%rax)
+ 13611d5:      	leaq	0x4b7a2b(%rip), %rcx    # 0x1818c07 STRING_PREFIX 'protocol_mismatchforget failed: %vcontainermaxprocsgoroutine profileAllThreadsSyscallGC assist marki'
+ 13611dc:      	movq	%rcx, (%rax)
+ 13611df:      	movq	$0x1c, 0x18(%rax)
+ 13611e7:      	leaq	0x4cb825(%rip), %rcx    # 0x182ca13 STRING_PREFIX 'unsupported protocol versioncannot unmarshal DNS message/proc/sys/net/core/somaxconnSIGHUP: terminal'
+ 13611ee:      	movq	%rcx, 0x10(%rax)
+ 13611f2:      	movq	%rax, 0xd8(%rsp)
+ 13611fa:      	leaq	0x312edf(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1361201:      	leaq	0xc0(%rsp), %rbx
+ 1361209:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 136120e:      	leaq	0x312ecb(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 1361215:      	movq	%rax, %rcx
+ 1361218:      	movq	0x158(%rsp), %rax
+ 1361220:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1361225:      	movl	$0x1, %eax
+ 136122a:      	addq	$0x140, %rsp            # imm = 0x140
+ 1361231:      	popq	%rbp
+ 1361232:      	retq
+ 1361233:      	movq	0x150(%rsp), %rsi
+ 136123b:      	movq	0x20(%rsi), %rdi
+ 136123f:      	nop
+ 1361240:      	testq	%rdi, %rdi
+ 1361243:      	je	0x1361313 <.text+0xf60313>
+ 1361249:      	movq	0x10(%rdx), %rcx
+ 136124d:      	cmpq	%rcx, %rdi
+ 1361250:      	je	0x1361259 <.text+0xf60259>
+ 1361252:      	movl	$0x1, %eax
+ 1361257:      	jmp	0x1361271 <.text+0xf60271>
+ 1361259:      	movq	0x18(%rsi), %rbx
+ 136125d:      	movq	0x8(%rdx), %rax
+ 1361261:      	callq	0x4068e0 <.text+0x58e0> CALL runtime.memequal
+ 1361266:      	xorl	$0x1, %eax
+ 1361269:      	movq	0x150(%rsp), %rsi
+ 1361271:      	testb	%al, %al
+ 1361273:      	je	0x1361313 <.text+0xf60313>
+ 1361279:      	movq	0x160(%rsp), %rcx
+ 1361281:      	movq	(%rcx), %rcx
+ 1361284:      	movq	%rcx, 0x48(%rsp)
+ 1361289:      	leaq	0x2c8b50(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 1361290:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361295:      	movq	$0xc, 0x8(%rax)
+ 136129d:      	leaq	0x4b0385(%rip), %rcx    # 0x1811629 STRING_PREFIX 'unauthorizedengine_error224.0.0.0/24multipathtcp127.0.0.1:53pointtopointno such hostunknown portCIDR'
+ 13612a4:      	movq	%rcx, (%rax)
+ 13612a7:      	movq	$0x9, 0x18(%rax)
+ 13612af:      	leaq	0x4ac279(%rip), %rcx    # 0x180d52f STRING_PREFIX 'bad tokenff02::/16broadcastmulticastfiles,dnsdns,filesipv6-icmplocalhostattempts:raw-writeParseBoolt'
+ 13612b6:      	movq	%rcx, 0x10(%rax)
+ 13612ba:      	movq	0x48(%rsp), %rcx
+ 13612bf:      	movq	%rcx, 0xc0(%rsp)
+ 13612c7:      	movups	%xmm15, 0xc8(%rsp)
+ 13612d0:      	movq	%rax, 0xd8(%rsp)
+ 13612d8:      	leaq	0x312e01(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 13612df:      	leaq	0xc0(%rsp), %rbx
+ 13612e7:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 13612ec:      	leaq	0x312ded(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 13612f3:      	movq	%rax, %rcx
+ 13612f6:      	movq	0x158(%rsp), %rax
+ 13612fe:      	nop
+ 1361300:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1361305:      	movl	$0x1, %eax
+ 136130a:      	addq	$0x140, %rsp            # imm = 0x140
+ 1361311:      	popq	%rbp
+ 1361312:      	retq
+ 1361313:      	nop
+ 1361314:      	leaq	0x28(%rsi), %rcx
+ 1361318:      	xorl	%eax, %eax
+ 136131a:      	movl	$0x1, %edx
+ 136131f:      	lock
+ 1361320:      	cmpxchgl	%edx, 0x28(%rsi)
+ 1361324:      	sete	%dl
+ 1361327:      	testb	%dl, %dl
+ 1361329:      	jne	0x1361345 <.text+0xf60345>
+ 136132b:      	movq	%rcx, 0x50(%rsp)
+ 1361330:      	movq	%rcx, %rax
+ 1361333:      	callq	0x49dae0 <.text+0x9cae0> CALL internal/sync.(*Mutex).lockSlow
+ 1361338:      	movq	0x50(%rsp), %rcx
+ 136133d:      	movq	0x150(%rsp), %rsi
+ 1361345:      	movq	0x158(%rsp), %rdx
+ 136134d:      	movb	$0x1, 0x18(%rdx)
+ 1361351:      	nop
+ 1361352:      	nop
+ 1361353:      	movl	$0xffffffff, %ebx       # imm = 0xFFFFFFFF
+ 1361358:      	lock
+ 1361359:      	xaddl	%ebx, 0x28(%rsi)
+ 136135d:      	nopl	(%rax)
+ 1361360:      	decl	%ebx
+ 1361362:      	je	0x1361374 <.text+0xf60374>
+ 1361364:      	movq	%rcx, %rax
+ 1361367:      	callq	0x49ddc0 <.text+0x9cdc0> CALL internal/sync.(*Mutex).unlockSlow
+ 136136c:      	movq	0x150(%rsp), %rsi
+ 1361374:      	movq	0x8(%rsi), %rax
+ 1361378:      	movq	(%rsi), %rcx
+ 136137b:      	movq	0x20(%rcx), %rcx
+ 136137f:      	nop
+ 1361380:      	callq	*%rcx
+ 1361382:      	movq	0x160(%rsp), %rcx
+ 136138a:      	movq	(%rcx), %rcx
+ 136138d:      	movq	%rcx, 0x48(%rsp)
+ 1361392:      	movq	%rax, 0x78(%rsp)
+ 1361397:      	movq	%rbx, 0x80(%rsp)
+ 136139f:      	movq	$0x1, 0x88(%rsp)
+ 13613ab:      	leaq	0x2c898e(%rip), %rax    # 0x1629d40
+ 13613b2:      	leaq	0x78(%rsp), %rbx
+ 13613b7:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 13613bc:      	movq	0x48(%rsp), %rcx
+ 13613c1:      	movq	%rcx, 0xc0(%rsp)
+ 13613c9:      	leaq	0x2c8970(%rip), %rcx    # 0x1629d40
+ 13613d0:      	movq	%rcx, 0xc8(%rsp)
+ 13613d8:      	movq	%rax, 0xd0(%rsp)
+ 13613e0:      	movq	$0x0, 0xd8(%rsp)
+ 13613ec:      	leaq	0x312ced(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 13613f3:      	leaq	0xc0(%rsp), %rbx
+ 13613fb:      	nopl	(%rax,%rax)
+ 1361400:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1361405:      	leaq	0x312cd4(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 136140c:      	movq	%rax, %rcx
+ 136140f:      	movq	0x158(%rsp), %rax
+ 1361417:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 136141c:      	xorl	%eax, %eax
+ 136141e:      	addq	$0x140, %rsp            # imm = 0x140
+ 1361425:      	popq	%rbp
+ 1361426:      	retq
+ 1361427:      	cmpb	$0x0, 0x18(%rbx)
+ 136142b:      	je	0x1361ff0 <.text+0xf60ff0>
+ 1361431:      	cmpq	$0x5, %rdx
+ 1361435:      	jle	0x1361a4a <.text+0xf60a4a>
+ 136143b:      	nopl	(%rax,%rax)
+ 1361440:      	cmpq	$0x6, %rdx
+ 1361444:      	je	0x1361753 <.text+0xf60753>
+ 136144a:      	cmpq	$0xb, %rdx
+ 136144e:      	je	0x13614b1 <.text+0xf604b1>
+ 1361450:      	cmpq	$0xe, %rdx
+ 1361454:      	jne	0x1361f53 <.text+0xf60f53>
+ 136145a:      	movabsq	$0x4c656c6946746573, %rdx # imm = 0x4C656C6946746573
+ 1361464:      	cmpq	%rdx, (%rsi)
+ 1361467:      	jne	0x1361f53 <.text+0xf60f53>
+ 136146d:      	cmpl	$0x6967676f, 0x8(%rsi)  # imm = 0x6967676F
+ 1361474:      	jne	0x1361f53 <.text+0xf60f53>
+ 136147a:      	cmpw	$0x676e, 0xc(%rsi)      # imm = 0x676E
+ 1361480:      	jne	0x1361f53 <.text+0xf60f53>
+ 1361486:      	movq	(%rax), %rdx
+ 1361489:      	movq	0x8(%rax), %rsi
+ 136148d:      	movq	%rsi, 0x58(%rsp)
+ 1361492:      	testq	%rdx, %rdx
+ 1361495:      	je	0x1362089 <.text+0xf61089>
+ 136149b:      	movq	0x8(%rdx), %rdi
+ 136149f:      	movq	0x13d1b8a(%rip), %r8    # 0x2733030
+ 13614a6:      	movq	(%r8), %r9
+ 13614a9:      	movl	0x10(%rdx), %edx
+ 13614ac:      	jmp	0x1362428 <.text+0xf61428>
+ 13614b1:      	movabsq	$0x6e6f436b63656863, %rdx # imm = 0x6E6F436B63656863
+ 13614bb:      	nopl	(%rax,%rax)
+ 13614c0:      	cmpq	%rdx, (%rsi)
+ 13614c3:      	jne	0x1361f53 <.text+0xf60f53>
+ 13614c9:      	cmpw	$0x6966, 0x8(%rsi)      # imm = 0x6966
+ 13614cf:      	jne	0x1361f53 <.text+0xf60f53>
+ 13614d5:      	cmpb	$0x67, 0xa(%rsi)
+ 13614d9:      	jne	0x1361f53 <.text+0xf60f53>
+ 13614df:      	leaq	0x257dba(%rip), %rax    # 0x15b92a0
+ 13614e6:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 13614eb:      	movq	%rax, 0x128(%rsp)
+ 13614f3:      	movq	0x160(%rsp), %rcx
+ 13614fb:      	movq	0x18(%rcx), %rdx
+ 13614ff:      	movq	0x20(%rcx), %rbx
+ 1361503:      	movq	0x28(%rcx), %rcx
+ 1361507:      	leaq	0x10ecf2(%rip), %rdi    # 0x1470200
+ 136150e:      	movq	%rax, %rsi
+ 1361511:      	movq	%rdx, %rax
+ 1361514:      	callq	0x771720 <.text+0x370720> CALL encoding/json.Unmarshal
+ 1361519:      	nopl	(%rax)
+ 1361520:      	testq	%rax, %rax
+ 1361523:      	je	0x13615f1 <.text+0xf605f1>
+ 1361529:      	movq	0x18(%rax), %rcx
+ 136152d:      	movq	%rbx, %rax
+ 1361530:      	callq	*%rcx
+ 1361532:      	movq	%rbx, 0x40(%rsp)
+ 1361537:      	movq	%rax, 0xe8(%rsp)
+ 136153f:      	movq	0x160(%rsp), %rcx
+ 1361547:      	movq	(%rcx), %rcx
+ 136154a:      	movq	%rcx, 0x48(%rsp)
+ 136154f:      	leaq	0x2c888a(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 1361556:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 136155b:      	movq	$0xf, 0x8(%rax)
+ 1361563:      	leaq	0x4b42e5(%rip), %rcx    # 0x181584f STRING_PREFIX 'invalid_requestmissing address/proc/net/igmp6unknown networkcomputeMaxProcsupdateMaxProcsGallocmRInt'
+ 136156a:      	movq	%rcx, (%rax)
+ 136156d:      	movq	0x40(%rsp), %rcx
+ 1361572:      	movq	%rcx, 0x18(%rax)
+ 1361576:      	cmpl	$0x0, 0x142b353(%rip)   # 0x278c8d0
+ 136157d:      	jne	0x1361589 <.text+0xf60589>
+ 136157f:      	movq	0xe8(%rsp), %rcx
+ 1361587:      	jmp	0x1361599 <.text+0xf60599>
+ 1361589:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 136158e:      	movq	0xe8(%rsp), %rcx
+ 1361596:      	movq	%rcx, (%r11)
+ 1361599:      	movq	%rcx, 0x10(%rax)
+ 136159d:      	movq	0x48(%rsp), %rcx
+ 13615a2:      	movq	%rcx, 0xc0(%rsp)
+ 13615aa:      	movups	%xmm15, 0xc8(%rsp)
+ 13615b3:      	movq	%rax, 0xd8(%rsp)
+ 13615bb:      	leaq	0x312b1e(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 13615c2:      	leaq	0xc0(%rsp), %rbx
+ 13615ca:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 13615cf:      	leaq	0x312b0a(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 13615d6:      	movq	%rax, %rcx
+ 13615d9:      	movq	0x158(%rsp), %rax
+ 13615e1:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 13615e6:      	xorl	%eax, %eax
+ 13615e8:      	addq	$0x140, %rsp            # imm = 0x140
+ 13615ef:      	popq	%rbp
+ 13615f0:      	retq
+ 13615f1:      	movq	0x150(%rsp), %rdx
+ 13615f9:      	movq	(%rdx), %rsi
+ 13615fc:      	movq	0x8(%rdx), %rax
+ 1361600:      	movq	0x18(%rsi), %rdx
+ 1361604:      	movq	0x128(%rsp), %rsi
+ 136160c:      	movq	(%rsi), %rbx
+ 136160f:      	movq	0x8(%rsi), %rcx
+ 1361613:      	callq	*%rdx
+ 1361615:      	testq	%rax, %rax
+ 1361618:      	je	0x13616e8 <.text+0xf606e8>
+ 136161e:      	movq	0x18(%rax), %rcx
+ 1361622:      	movq	%rbx, %rax
+ 1361625:      	callq	*%rcx
+ 1361627:      	movq	%rbx, 0x40(%rsp)
+ 136162c:      	movq	%rax, 0xe8(%rsp)
+ 1361634:      	movq	0x160(%rsp), %rcx
+ 136163c:      	movq	(%rcx), %rcx
+ 136163f:      	movq	%rcx, 0x48(%rsp)
+ 1361644:      	leaq	0x2c8795(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 136164b:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361650:      	movq	$0xe, 0x8(%rax)
+ 1361658:      	leaq	0x4b2ad3(%rip), %rcx    # 0x1814132 STRING_PREFIX 'invalid_configunknown_method/etc/protocolsinternal error.in-addr.arpa./proc/net/igmpunknown mode: un'
+ 136165f:      	movq	%rcx, (%rax)
+ 1361662:      	movq	0x40(%rsp), %rcx
+ 1361667:      	movq	%rcx, 0x18(%rax)
+ 136166b:      	cmpl	$0x0, 0x142b25e(%rip)   # 0x278c8d0
+ 1361672:      	jne	0x1361680 <.text+0xf60680>
+ 1361674:      	movq	0xe8(%rsp), %rcx
+ 136167c:      	jmp	0x1361690 <.text+0xf60690>
+ 136167e:      	nop
+ 1361680:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 1361685:      	movq	0xe8(%rsp), %rcx
+ 136168d:      	movq	%rcx, (%r11)
+ 1361690:      	movq	%rcx, 0x10(%rax)
+ 1361694:      	movq	0x48(%rsp), %rcx
+ 1361699:      	movq	%rcx, 0xc0(%rsp)
+ 13616a1:      	movups	%xmm15, 0xc8(%rsp)
+ 13616aa:      	movq	%rax, 0xd8(%rsp)
+ 13616b2:      	leaq	0x312a27(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 13616b9:      	leaq	0xc0(%rsp), %rbx
+ 13616c1:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 13616c6:      	leaq	0x312a13(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 13616cd:      	movq	%rax, %rcx
+ 13616d0:      	movq	0x158(%rsp), %rax
+ 13616d8:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 13616dd:      	xorl	%eax, %eax
+ 13616df:      	addq	$0x140, %rsp            # imm = 0x140
+ 13616e6:      	popq	%rbp
+ 13616e7:      	retq
+ 13616e8:      	callq	0x47db80 <.text+0x7cb80> CALL runtime.makemap_small
+ 13616ed:      	movq	0x160(%rsp), %rcx
+ 13616f5:      	movq	(%rcx), %rcx
+ 13616f8:      	movq	%rcx, 0xc0(%rsp)
+ 1361700:      	leaq	0x2418b9(%rip), %rcx    # 0x15a2fc0
+ 1361707:      	movq	%rcx, 0xc8(%rsp)
+ 136170f:      	movq	%rax, 0xd0(%rsp)
+ 1361717:      	movq	$0x0, 0xd8(%rsp)
+ 1361723:      	leaq	0x3129b6(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 136172a:      	leaq	0xc0(%rsp), %rbx
+ 1361732:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1361737:      	leaq	0x3129a2(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 136173e:      	movq	%rax, %rcx
+ 1361741:      	movq	0x158(%rsp), %rax
+ 1361749:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 136174e:      	jmp	0x136207e <.text+0xf6107e>
+ 1361753:      	cmpl	$0x67726f66, (%rsi)     # imm = 0x67726F66
+ 1361759:      	jne	0x136193b <.text+0xf6093b>
+ 136175f:      	cmpw	$0x7465, 0x4(%rsi)      # imm = 0x7465
+ 1361765:      	jne	0x136193b <.text+0xf6093b>
+ 136176b:      	movq	(%rax), %rcx
+ 136176e:      	movq	0x8(%rax), %rax
+ 1361772:      	movq	0x28(%rcx), %rcx
+ 1361776:      	callq	*%rcx
+ 1361778:      	nopl	(%rax,%rax)
+ 1361780:      	testq	%rax, %rax
+ 1361783:      	je	0x13618d0 <.text+0xf608d0>
+ 1361789:      	movq	%rbx, 0x68(%rsp)
+ 136178e:      	movq	%rax, 0x30(%rsp)
+ 1361793:      	leaq	0x1878e6(%rip), %rax    # 0x14e9080
+ 136179a:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 136179f:      	movq	0x30(%rsp), %rcx
+ 13617a4:      	testq	%rcx, %rcx
+ 13617a7:      	je	0x13617af <.text+0xf607af>
+ 13617a9:      	movq	0x8(%rcx), %r8
+ 13617ad:      	jmp	0x13617b2 <.text+0xf607b2>
+ 13617af:      	movq	%rcx, %r8
+ 13617b2:      	movq	%r8, (%rax)
+ 13617b5:      	cmpl	$0x0, 0x142b114(%rip)   # 0x278c8d0
+ 13617bc:      	jne	0x13617c5 <.text+0xf607c5>
+ 13617be:      	movq	0x68(%rsp), %r8
+ 13617c3:      	jmp	0x13617d2 <.text+0xf607d2>
+ 13617c5:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 13617ca:      	movq	0x68(%rsp), %r8
+ 13617cf:      	movq	%r8, (%r11)
+ 13617d2:      	movq	%r8, 0x8(%rax)
+ 13617d6:      	movq	0x150(%rsp), %r8
+ 13617de:      	movq	0x10(%r8), %rdx
+ 13617e2:      	movq	(%rdx), %r8
+ 13617e5:      	movl	$0x11, %ebx
+ 13617ea:      	movq	%rax, %rcx
+ 13617ed:      	movl	$0x1, %edi
+ 13617f2:      	movq	%rdi, %rsi
+ 13617f5:      	leaq	0x4b741c(%rip), %rax    # 0x1818c18 STRING_PREFIX 'forget failed: %vcontainermaxprocsgoroutine profileAllThreadsSyscallGC assist markingselect (no case'
+ 13617fc:      	callq	*%r8
+ 13617ff:      	movq	0x30(%rsp), %r8
+ 1361804:      	movq	0x18(%r8), %r8
+ 1361808:      	movq	0x68(%rsp), %rax
+ 136180d:      	callq	*%r8
+ 1361810:      	movq	%rbx, 0x40(%rsp)
+ 1361815:      	movq	%rax, 0xe8(%rsp)
+ 136181d:      	movq	0x160(%rsp), %r8
+ 1361825:      	movq	(%r8), %r8
+ 1361828:      	movq	%r8, 0x48(%rsp)
+ 136182d:      	leaq	0x2c85ac(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 1361834:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361839:      	movq	$0xc, 0x8(%rax)
+ 1361841:      	leaq	0x4afded(%rip), %r8     # 0x1811635 STRING_PREFIX 'engine_error224.0.0.0/24multipathtcp127.0.0.1:53pointtopointno such hostunknown portCIDR addressinva'
+ 1361848:      	movq	%r8, (%rax)
+ 136184b:      	movq	0x40(%rsp), %r8
+ 1361850:      	movq	%r8, 0x18(%rax)
+ 1361854:      	cmpl	$0x0, 0x142b075(%rip)   # 0x278c8d0
+ 136185b:      	jne	0x1361867 <.text+0xf60867>
+ 136185d:      	movq	0xe8(%rsp), %rcx
+ 1361865:      	jmp	0x1361877 <.text+0xf60877>
+ 1361867:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 136186c:      	movq	0xe8(%rsp), %rcx
+ 1361874:      	movq	%rcx, (%r11)
+ 1361877:      	movq	%rcx, 0x10(%rax)
+ 136187b:      	movq	0x48(%rsp), %rcx
+ 1361880:      	movq	%rcx, 0xc0(%rsp)
+ 1361888:      	movups	%xmm15, 0xc8(%rsp)
+ 1361891:      	movq	%rax, 0xd8(%rsp)
+ 1361899:      	leaq	0x312840(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 13618a0:      	leaq	0xc0(%rsp), %rbx
+ 13618a8:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 13618ad:      	leaq	0x31282c(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 13618b4:      	movq	%rax, %rcx
+ 13618b7:      	movq	0x158(%rsp), %rax
+ 13618bf:      	nop
+ 13618c0:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 13618c5:      	xorl	%eax, %eax
+ 13618c7:      	addq	$0x140, %rsp            # imm = 0x140
+ 13618ce:      	popq	%rbp
+ 13618cf:      	retq
+ 13618d0:      	callq	0x47db80 <.text+0x7cb80> CALL runtime.makemap_small
+ 13618d5:      	movq	0x160(%rsp), %rcx
+ 13618dd:      	movq	(%rcx), %rcx
+ 13618e0:      	movq	%rcx, 0xc0(%rsp)
+ 13618e8:      	leaq	0x2416d1(%rip), %rcx    # 0x15a2fc0
+ 13618ef:      	movq	%rcx, 0xc8(%rsp)
+ 13618f7:      	movq	%rax, 0xd0(%rsp)
+ 13618ff:      	movq	$0x0, 0xd8(%rsp)
+ 136190b:      	leaq	0x3127ce(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1361912:      	leaq	0xc0(%rsp), %rbx
+ 136191a:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 136191f:      	leaq	0x3127ba(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 1361926:      	movq	%rax, %rcx
+ 1361929:      	movq	0x158(%rsp), %rax
+ 1361931:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1361936:      	jmp	0x136207e <.text+0xf6107e>
+ 136193b:      	cmpl	$0x74617473, (%rsi)     # imm = 0x74617473
+ 1361941:      	jne	0x1361f53 <.text+0xf60f53>
+ 1361947:      	cmpw	$0x7375, 0x4(%rsi)      # imm = 0x7375
+ 136194d:      	jne	0x1361f53 <.text+0xf60f53>
+ 1361953:      	movq	(%rax), %rcx
+ 1361956:      	movq	0x8(%rax), %rax
+ 136195a:      	movq	0x38(%rcx), %rcx
+ 136195e:      	nop
+ 1361960:      	callq	*%rcx
+ 1361962:      	movl	%eax, 0xf0(%rsp)
+ 1361969:      	movq	%rbx, 0xf8(%rsp)
+ 1361971:      	movq	%rcx, 0x100(%rsp)
+ 1361979:      	movq	%rdi, 0x108(%rsp)
+ 1361981:      	movq	%rsi, 0x110(%rsp)
+ 1361989:      	movw	%r8w, 0x118(%rsp)
+ 1361992:      	movups	0xf0(%rsp), %xmm0
+ 136199a:      	movups	%xmm0, 0x90(%rsp)
+ 13619a2:      	movups	0x100(%rsp), %xmm0
+ 13619aa:      	movups	%xmm0, 0xa0(%rsp)
+ 13619b2:      	movups	0x110(%rsp), %xmm0
+ 13619ba:      	movups	%xmm0, 0xb0(%rsp)
+ 13619c2:      	movq	0x160(%rsp), %rcx
+ 13619ca:      	movq	(%rcx), %rcx
+ 13619cd:      	movq	%rcx, 0x48(%rsp)
+ 13619d2:      	leaq	0x38b847(%rip), %rax    # 0x16ed220 STRING_PREFIX '0'
+ 13619d9:      	leaq	0x90(%rsp), %rbx
+ 13619e1:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 13619e6:      	movq	0x48(%rsp), %rcx
+ 13619eb:      	movq	%rcx, 0xc0(%rsp)
+ 13619f3:      	leaq	0x38b826(%rip), %rcx    # 0x16ed220 STRING_PREFIX '0'
+ 13619fa:      	movq	%rcx, 0xc8(%rsp)
+ 1361a02:      	movq	%rax, 0xd0(%rsp)
+ 1361a0a:      	movq	$0x0, 0xd8(%rsp)
+ 1361a16:      	leaq	0x3126c3(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1361a1d:      	leaq	0xc0(%rsp), %rbx
+ 1361a25:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1361a2a:      	leaq	0x3126af(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 1361a31:      	movq	%rax, %rcx
+ 1361a34:      	movq	0x158(%rsp), %rax
+ 1361a3c:      	nopl	(%rax)
+ 1361a40:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1361a45:      	jmp	0x136207e <.text+0xf6107e>
+ 1361a4a:      	cmpq	$0x4, %rdx
+ 1361a4e:      	jne	0x1361bb3 <.text+0xf60bb3>
+ 1361a54:      	cmpl	$0x706f7473, (%rsi)     # imm = 0x706F7473
+ 1361a5a:      	nopw	(%rax,%rax)
+ 1361a60:      	jne	0x1361f53 <.text+0xf60f53>
+ 1361a66:      	movq	(%rax), %rcx
+ 1361a69:      	movq	0x8(%rax), %rax
+ 1361a6d:      	movq	0x40(%rcx), %rcx
+ 1361a71:      	callq	*%rcx
+ 1361a73:      	testq	%rax, %rax
+ 1361a76:      	je	0x1361b48 <.text+0xf60b48>
+ 1361a7c:      	movq	0x18(%rax), %rcx
+ 1361a80:      	movq	%rbx, %rax
+ 1361a83:      	callq	*%rcx
+ 1361a85:      	movq	%rbx, 0x40(%rsp)
+ 1361a8a:      	movq	%rax, 0xe8(%rsp)
+ 1361a92:      	movq	0x160(%rsp), %rcx
+ 1361a9a:      	movq	(%rcx), %rcx
+ 1361a9d:      	movq	%rcx, 0x48(%rsp)
+ 1361aa2:      	leaq	0x2c8337(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 1361aa9:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361aae:      	movq	$0xc, 0x8(%rax)
+ 1361ab6:      	leaq	0x4afb78(%rip), %rcx    # 0x1811635 STRING_PREFIX 'engine_error224.0.0.0/24multipathtcp127.0.0.1:53pointtopointno such hostunknown portCIDR addressinva'
+ 1361abd:      	movq	%rcx, (%rax)
+ 1361ac0:      	movq	0x40(%rsp), %rcx
+ 1361ac5:      	movq	%rcx, 0x18(%rax)
+ 1361ac9:      	cmpl	$0x0, 0x142ae00(%rip)   # 0x278c8d0
+ 1361ad0:      	jne	0x1361ae0 <.text+0xf60ae0>
+ 1361ad2:      	movq	0xe8(%rsp), %rcx
+ 1361ada:      	jmp	0x1361af0 <.text+0xf60af0>
+ 1361adc:      	nopl	(%rax)
+ 1361ae0:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 1361ae5:      	movq	0xe8(%rsp), %rcx
+ 1361aed:      	movq	%rcx, (%r11)
+ 1361af0:      	movq	%rcx, 0x10(%rax)
+ 1361af4:      	movq	0x48(%rsp), %rcx
+ 1361af9:      	movq	%rcx, 0xc0(%rsp)
+ 1361b01:      	movups	%xmm15, 0xc8(%rsp)
+ 1361b0a:      	movq	%rax, 0xd8(%rsp)
+ 1361b12:      	leaq	0x3125c7(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1361b19:      	leaq	0xc0(%rsp), %rbx
+ 1361b21:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1361b26:      	leaq	0x3125b3(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 1361b2d:      	movq	%rax, %rcx
+ 1361b30:      	movq	0x158(%rsp), %rax
+ 1361b38:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1361b3d:      	xorl	%eax, %eax
+ 1361b3f:      	addq	$0x140, %rsp            # imm = 0x140
+ 1361b46:      	popq	%rbp
+ 1361b47:      	retq
+ 1361b48:      	callq	0x47db80 <.text+0x7cb80> CALL runtime.makemap_small
+ 1361b4d:      	movq	0x160(%rsp), %rcx
+ 1361b55:      	movq	(%rcx), %rcx
+ 1361b58:      	movq	%rcx, 0xc0(%rsp)
+ 1361b60:      	leaq	0x241459(%rip), %rcx    # 0x15a2fc0
+ 1361b67:      	movq	%rcx, 0xc8(%rsp)
+ 1361b6f:      	movq	%rax, 0xd0(%rsp)
+ 1361b77:      	movq	$0x0, 0xd8(%rsp)
+ 1361b83:      	leaq	0x312556(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1361b8a:      	leaq	0xc0(%rsp), %rbx
+ 1361b92:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1361b97:      	leaq	0x312542(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 1361b9e:      	movq	%rax, %rcx
+ 1361ba1:      	movq	0x158(%rsp), %rax
+ 1361ba9:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1361bae:      	jmp	0x136207e <.text+0xf6107e>
+ 1361bb3:      	cmpq	$0x5, %rdx
+ 1361bb7:      	jne	0x1361f53 <.text+0xf60f53>
+ 1361bbd:      	cmpl	$0x72617473, (%rsi)     # imm = 0x72617473
+ 1361bc3:      	jne	0x1361f53 <.text+0xf60f53>
+ 1361bc9:      	cmpb	$0x74, 0x4(%rsi)
+ 1361bcd:      	jne	0x1361f53 <.text+0xf60f53>
+ 1361bd3:      	leaq	0x2c8346(%rip), %rax    # 0x1629f20 STRING_PREFIX ' '
+ 1361bda:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361bdf:      	movq	%rax, 0x130(%rsp)
+ 1361be7:      	movq	0x160(%rsp), %rcx
+ 1361bef:      	movq	0x18(%rcx), %rdx
+ 1361bf3:      	movq	0x20(%rcx), %rbx
+ 1361bf7:      	movq	0x28(%rcx), %rcx
+ 1361bfb:      	leaq	0x10e6fe(%rip), %rdi    # 0x1470300
+ 1361c02:      	movq	%rax, %rsi
+ 1361c05:      	movq	%rdx, %rax
+ 1361c08:      	callq	0x771720 <.text+0x370720> CALL encoding/json.Unmarshal
+ 1361c0d:      	testq	%rax, %rax
+ 1361c10:      	je	0x1361cde <.text+0xf60cde>
+ 1361c16:      	movq	0x18(%rax), %rcx
+ 1361c1a:      	movq	%rbx, %rax
+ 1361c1d:      	callq	*%rcx
+ 1361c1f:      	movq	%rbx, 0x40(%rsp)
+ 1361c24:      	movq	%rax, 0xe8(%rsp)
+ 1361c2c:      	movq	0x160(%rsp), %rcx
+ 1361c34:      	movq	(%rcx), %rcx
+ 1361c37:      	movq	%rcx, 0x48(%rsp)
+ 1361c3c:      	leaq	0x2c819d(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 1361c43:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361c48:      	movq	$0xf, 0x8(%rax)
+ 1361c50:      	leaq	0x4b3bf8(%rip), %rcx    # 0x181584f STRING_PREFIX 'invalid_requestmissing address/proc/net/igmp6unknown networkcomputeMaxProcsupdateMaxProcsGallocmRInt'
+ 1361c57:      	movq	%rcx, (%rax)
+ 1361c5a:      	movq	0x40(%rsp), %rcx
+ 1361c5f:      	movq	%rcx, 0x18(%rax)
+ 1361c63:      	cmpl	$0x0, 0x142ac66(%rip)   # 0x278c8d0
+ 1361c6a:      	jne	0x1361c76 <.text+0xf60c76>
+ 1361c6c:      	movq	0xe8(%rsp), %rcx
+ 1361c74:      	jmp	0x1361c86 <.text+0xf60c86>
+ 1361c76:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 1361c7b:      	movq	0xe8(%rsp), %rcx
+ 1361c83:      	movq	%rcx, (%r11)
+ 1361c86:      	movq	%rcx, 0x10(%rax)
+ 1361c8a:      	movq	0x48(%rsp), %rcx
+ 1361c8f:      	movq	%rcx, 0xc0(%rsp)
+ 1361c97:      	movups	%xmm15, 0xc8(%rsp)
+ 1361ca0:      	movq	%rax, 0xd8(%rsp)
+ 1361ca8:      	leaq	0x312431(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1361caf:      	leaq	0xc0(%rsp), %rbx
+ 1361cb7:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1361cbc:      	leaq	0x31241d(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 1361cc3:      	movq	%rax, %rcx
+ 1361cc6:      	movq	0x158(%rsp), %rax
+ 1361cce:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1361cd3:      	xorl	%eax, %eax
+ 1361cd5:      	addq	$0x140, %rsp            # imm = 0x140
+ 1361cdc:      	popq	%rbp
+ 1361cdd:      	retq
+ 1361cde:      	movq	0x130(%rsp), %rcx
+ 1361ce6:      	movq	0x8(%rcx), %rcx
+ 1361cea:      	movq	%rcx, 0x40(%rsp)
+ 1361cef:      	leaq	0x18738a(%rip), %rax    # 0x14e9080
+ 1361cf6:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361cfb:      	movq	%rax, 0xe0(%rsp)
+ 1361d03:      	movq	0x40(%rsp), %rax
+ 1361d08:      	callq	0x47d420 <.text+0x7c420> CALL runtime.convT64
+ 1361d0d:      	leaq	0x15fdcc(%rip), %rcx    # 0x14c1ae0
+ 1361d14:      	movq	0xe0(%rsp), %rdx
+ 1361d1c:      	movq	%rcx, (%rdx)
+ 1361d1f:      	cmpl	$0x0, 0x142abaa(%rip)   # 0x278c8d0
+ 1361d26:      	je	0x1361d38 <.text+0xf60d38>
+ 1361d28:      	movq	0x8(%rdx), %r8
+ 1361d2c:      	callq	0x488160 <.text+0x87160> CALL runtime.gcWriteBarrier2
+ 1361d31:      	movq	%rax, (%r11)
+ 1361d34:      	movq	%r8, 0x8(%r11)
+ 1361d38:      	movq	%rax, 0x8(%rdx)
+ 1361d3c:      	movq	0x150(%rsp), %r8
+ 1361d44:      	movq	0x10(%r8), %r8
+ 1361d48:      	movq	(%r8), %r9
+ 1361d4b:      	leaq	0x4d47c6(%rip), %rax    # 0x1836518 STRING_PREFIX 'start requested (%d config bytes)go package net: confVal.netCgo = invalid value %q for flag -%s: %vs'
+ 1361d52:      	movl	$0x21, %ebx
+ 1361d57:      	movq	%rdx, %rcx
+ 1361d5a:      	movl	$0x1, %edi
+ 1361d5f:      	movq	%rdi, %rsi
+ 1361d62:      	movq	%r8, %rdx
+ 1361d65:      	callq	*%r9
+ 1361d68:      	movq	0x150(%rsp), %r8
+ 1361d70:      	movq	0x8(%r8), %rax
+ 1361d74:      	movq	(%r8), %r8
+ 1361d77:      	movq	0x30(%r8), %r8
+ 1361d7b:      	movq	0x130(%rsp), %r9
+ 1361d83:      	movq	(%r9), %rbx
+ 1361d86:      	movq	0x8(%r9), %rcx
+ 1361d8a:      	movq	0x10(%r9), %rdi
+ 1361d8e:      	movq	0x18(%r9), %rsi
+ 1361d92:      	callq	*%r8
+ 1361d95:      	testq	%rax, %rax
+ 1361d98:      	je	0x1361ee8 <.text+0xf60ee8>
+ 1361d9e:      	movq	%rbx, 0x70(%rsp)
+ 1361da3:      	movq	%rax, 0x38(%rsp)
+ 1361da8:      	leaq	0x1872d1(%rip), %rax    # 0x14e9080
+ 1361daf:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361db4:      	movq	0x38(%rsp), %rcx
+ 1361db9:      	testq	%rcx, %rcx
+ 1361dbc:      	je	0x1361dc4 <.text+0xf60dc4>
+ 1361dbe:      	movq	0x8(%rcx), %r8
+ 1361dc2:      	jmp	0x1361dc7 <.text+0xf60dc7>
+ 1361dc4:      	movq	%rcx, %r8
+ 1361dc7:      	movq	%r8, (%rax)
+ 1361dca:      	cmpl	$0x0, 0x142aaff(%rip)   # 0x278c8d0
+ 1361dd1:      	jne	0x1361dda <.text+0xf60dda>
+ 1361dd3:      	movq	0x70(%rsp), %r8
+ 1361dd8:      	jmp	0x1361de7 <.text+0xf60de7>
+ 1361dda:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 1361ddf:      	movq	0x70(%rsp), %r8
+ 1361de4:      	movq	%r8, (%r11)
+ 1361de7:      	movq	%r8, 0x8(%rax)
+ 1361deb:      	movq	0x150(%rsp), %r8
+ 1361df3:      	movq	0x10(%r8), %rdx
+ 1361df7:      	movq	(%rdx), %r8
+ 1361dfa:      	movl	$0x10, %ebx
+ 1361dff:      	movq	%rax, %rcx
+ 1361e02:      	movl	$0x1, %edi
+ 1361e07:      	movq	%rdi, %rsi
+ 1361e0a:      	leaq	0x4b5277(%rip), %rax    # 0x1817088 STRING_PREFIX 'start failed: %vhostLookupOrder=/etc/resolv.confnon-IPv4 addressnon-IPv6 addressunknown network no c'
+ 1361e11:      	callq	*%r8
+ 1361e14:      	movq	0x38(%rsp), %r8
+ 1361e19:      	movq	0x18(%r8), %r8
+ 1361e1d:      	movq	0x70(%rsp), %rax
+ 1361e22:      	callq	*%r8
+ 1361e25:      	movq	%rbx, 0x40(%rsp)
+ 1361e2a:      	movq	%rax, 0xe8(%rsp)
+ 1361e32:      	movq	0x160(%rsp), %r8
+ 1361e3a:      	movq	(%r8), %r8
+ 1361e3d:      	movq	%r8, 0x48(%rsp)
+ 1361e42:      	leaq	0x2c7f97(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 1361e49:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361e4e:      	movq	$0xc, 0x8(%rax)
+ 1361e56:      	leaq	0x4af7d8(%rip), %r8     # 0x1811635 STRING_PREFIX 'engine_error224.0.0.0/24multipathtcp127.0.0.1:53pointtopointno such hostunknown portCIDR addressinva'
+ 1361e5d:      	movq	%r8, (%rax)
+ 1361e60:      	movq	0x40(%rsp), %r8
+ 1361e65:      	movq	%r8, 0x18(%rax)
+ 1361e69:      	cmpl	$0x0, 0x142aa60(%rip)   # 0x278c8d0
+ 1361e70:      	jne	0x1361e80 <.text+0xf60e80>
+ 1361e72:      	movq	0xe8(%rsp), %rcx
+ 1361e7a:      	jmp	0x1361e90 <.text+0xf60e90>
+ 1361e7c:      	nopl	(%rax)
+ 1361e80:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 1361e85:      	movq	0xe8(%rsp), %rcx
+ 1361e8d:      	movq	%rcx, (%r11)
+ 1361e90:      	movq	%rcx, 0x10(%rax)
+ 1361e94:      	movq	0x48(%rsp), %rcx
+ 1361e99:      	movq	%rcx, 0xc0(%rsp)
+ 1361ea1:      	movups	%xmm15, 0xc8(%rsp)
+ 1361eaa:      	movq	%rax, 0xd8(%rsp)
+ 1361eb2:      	leaq	0x312227(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1361eb9:      	leaq	0xc0(%rsp), %rbx
+ 1361ec1:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1361ec6:      	leaq	0x312213(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 1361ecd:      	movq	%rax, %rcx
+ 1361ed0:      	movq	0x158(%rsp), %rax
+ 1361ed8:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1361edd:      	xorl	%eax, %eax
+ 1361edf:      	addq	$0x140, %rsp            # imm = 0x140
+ 1361ee6:      	popq	%rbp
+ 1361ee7:      	retq
+ 1361ee8:      	callq	0x47db80 <.text+0x7cb80> CALL runtime.makemap_small
+ 1361eed:      	movq	0x160(%rsp), %rcx
+ 1361ef5:      	movq	(%rcx), %rcx
+ 1361ef8:      	movq	%rcx, 0xc0(%rsp)
+ 1361f00:      	leaq	0x2410b9(%rip), %rcx    # 0x15a2fc0
+ 1361f07:      	movq	%rcx, 0xc8(%rsp)
+ 1361f0f:      	movq	%rax, 0xd0(%rsp)
+ 1361f17:      	movq	$0x0, 0xd8(%rsp)
+ 1361f23:      	leaq	0x3121b6(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1361f2a:      	leaq	0xc0(%rsp), %rbx
+ 1361f32:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1361f37:      	leaq	0x3121a2(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 1361f3e:      	movq	%rax, %rcx
+ 1361f41:      	movq	0x158(%rsp), %rax
+ 1361f49:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1361f4e:      	jmp	0x136207e <.text+0xf6107e>
+ 1361f53:      	movq	(%rcx), %rcx
+ 1361f56:      	movq	%rcx, 0x48(%rsp)
+ 1361f5b:      	leaq	0x2c7e7e(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 1361f62:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1361f67:      	movq	$0xe, 0x8(%rax)
+ 1361f6f:      	leaq	0x4b21ca(%rip), %rcx    # 0x1814140 STRING_PREFIX 'unknown_method/etc/protocolsinternal error.in-addr.arpa./proc/net/igmpunknown mode: unexpected EOFus'
+ 1361f76:      	movq	%rcx, (%rax)
+ 1361f79:      	movq	0x160(%rsp), %rcx
+ 1361f81:      	movq	0x10(%rcx), %rdx
+ 1361f85:      	movq	0x8(%rcx), %rcx
+ 1361f89:      	movq	%rdx, 0x18(%rax)
+ 1361f8d:      	cmpl	$0x0, 0x142a93c(%rip)   # 0x278c8d0
+ 1361f94:      	je	0x1361f9e <.text+0xf60f9e>
+ 1361f96:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 1361f9b:      	movq	%rcx, (%r11)
+ 1361f9e:      	movq	%rcx, 0x10(%rax)
+ 1361fa2:      	movq	0x48(%rsp), %rcx
+ 1361fa7:      	movq	%rcx, 0xc0(%rsp)
+ 1361faf:      	movups	%xmm15, 0xc8(%rsp)
+ 1361fb8:      	movq	%rax, 0xd8(%rsp)
+ 1361fc0:      	leaq	0x312119(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1361fc7:      	leaq	0xc0(%rsp), %rbx
+ 1361fcf:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1361fd4:      	leaq	0x312105(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 1361fdb:      	movq	%rax, %rcx
+ 1361fde:      	movq	0x158(%rsp), %rax
+ 1361fe6:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1361feb:      	jmp	0x136207e <.text+0xf6107e>
+ 1361ff0:      	movq	(%rcx), %rcx
+ 1361ff3:      	movq	%rcx, 0x48(%rsp)
+ 1361ff8:      	leaq	0x2c7de1(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 1361fff:      	nop
+ 1362000:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1362005:      	movq	$0xe, 0x8(%rax)
+ 136200d:      	leaq	0x4b2110(%rip), %rcx    # 0x1814124 STRING_PREFIX 'hello_requiredinvalid_configunknown_method/etc/protocolsinternal error.in-addr.arpa./proc/net/igmpun'
+ 1362014:      	movq	%rcx, (%rax)
+ 1362017:      	movq	$0xb, 0x18(%rax)
+ 136201f:      	leaq	0x4ae093(%rip), %rcx    # 0x18100b9 STRING_PREFIX 'hello firstsubmissionsnil contextsetnonblocki/o timeoutraw-controlparse errorshort writeassistQueuen'
+ 1362026:      	movq	%rcx, 0x10(%rax)
+ 136202a:      	movq	0x48(%rsp), %rcx
+ 136202f:      	movq	%rcx, 0xc0(%rsp)
+ 1362037:      	movups	%xmm15, 0xc8(%rsp)
+ 1362040:      	movq	%rax, 0xd8(%rsp)
+ 1362048:      	leaq	0x312091(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 136204f:      	leaq	0xc0(%rsp), %rbx
+ 1362057:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 136205c:      	leaq	0x31207d(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 1362063:      	movq	%rax, %rcx
+ 1362066:      	movq	0x158(%rsp), %rax
+ 136206e:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 1362073:      	xorl	%eax, %eax
+ 1362075:      	addq	$0x140, %rsp            # imm = 0x140
+ 136207c:      	popq	%rbp
+ 136207d:      	retq
+ 136207e:      	xorl	%eax, %eax
+ 1362080:      	addq	$0x140, %rsp            # imm = 0x140
+ 1362087:      	popq	%rbp
+ 1362088:      	retq
+ 1362089:      	testq	%rdx, %rdx
+ 136208c:      	je	0x1362385 <.text+0xf61385>
+ 1362092:      	movq	%rdx, 0xe8(%rsp)
+ 136209a:      	leaq	0x25727f(%rip), %rax    # 0x15b9320
+ 13620a1:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 13620a6:      	movq	%rax, 0x120(%rsp)
+ 13620ae:      	movq	0x160(%rsp), %rcx
+ 13620b6:      	movq	0x18(%rcx), %rdx
+ 13620ba:      	movq	0x20(%rcx), %rbx
+ 13620be:      	movq	0x28(%rcx), %rcx
+ 13620c2:      	leaq	0x10e1f7(%rip), %rdi    # 0x14702c0
+ 13620c9:      	movq	%rax, %rsi
+ 13620cc:      	movq	%rdx, %rax
+ 13620cf:      	callq	0x771720 <.text+0x370720> CALL encoding/json.Unmarshal
+ 13620d4:      	testq	%rax, %rax
+ 13620d7:      	je	0x13621a8 <.text+0xf611a8>
+ 13620dd:      	movq	0x18(%rax), %rcx
+ 13620e1:      	movq	%rbx, %rax
+ 13620e4:      	callq	*%rcx
+ 13620e6:      	movq	%rbx, 0x40(%rsp)
+ 13620eb:      	movq	%rax, 0xe8(%rsp)
+ 13620f3:      	movq	0x160(%rsp), %rcx
+ 13620fb:      	movq	(%rcx), %rcx
+ 13620fe:      	movq	%rcx, 0x48(%rsp)
+ 1362103:      	leaq	0x2c7cd6(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 136210a:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 136210f:      	movq	$0xf, 0x8(%rax)
+ 1362117:      	leaq	0x4b3731(%rip), %rcx    # 0x181584f STRING_PREFIX 'invalid_requestmissing address/proc/net/igmp6unknown networkcomputeMaxProcsupdateMaxProcsGallocmRInt'
+ 136211e:      	movq	%rcx, (%rax)
+ 1362121:      	movq	0x40(%rsp), %rcx
+ 1362126:      	movq	%rcx, 0x18(%rax)
+ 136212a:      	cmpl	$0x0, 0x142a79f(%rip)   # 0x278c8d0
+ 1362131:      	jne	0x1362140 <.text+0xf61140>
+ 1362133:      	movq	0xe8(%rsp), %rcx
+ 136213b:      	jmp	0x1362150 <.text+0xf61150>
+ 136213d:      	nopl	(%rax)
+ 1362140:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 1362145:      	movq	0xe8(%rsp), %rcx
+ 136214d:      	movq	%rcx, (%r11)
+ 1362150:      	movq	%rcx, 0x10(%rax)
+ 1362154:      	movq	0x48(%rsp), %rcx
+ 1362159:      	movq	%rcx, 0xc0(%rsp)
+ 1362161:      	movups	%xmm15, 0xc8(%rsp)
+ 136216a:      	movq	%rax, 0xd8(%rsp)
+ 1362172:      	leaq	0x311f67(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1362179:      	leaq	0xc0(%rsp), %rbx
+ 1362181:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1362186:      	leaq	0x311f53(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 136218d:      	movq	%rax, %rcx
+ 1362190:      	movq	0x158(%rsp), %rax
+ 1362198:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 136219d:      	xorl	%eax, %eax
+ 136219f:      	addq	$0x140, %rsp            # imm = 0x140
+ 13621a6:      	popq	%rbp
+ 13621a7:      	retq
+ 13621a8:      	movq	0xe8(%rsp), %rcx
+ 13621b0:      	movq	0x18(%rcx), %rcx
+ 13621b4:      	movq	0x120(%rsp), %rdx
+ 13621bc:      	movzbl	(%rdx), %ebx
+ 13621bf:      	movq	0x58(%rsp), %rax
+ 13621c4:      	callq	*%rcx
+ 13621c6:      	testq	%rax, %rax
+ 13621c9:      	je	0x1362315 <.text+0xf61315>
+ 13621cf:      	movq	%rbx, 0x60(%rsp)
+ 13621d4:      	movq	%rax, 0x28(%rsp)
+ 13621d9:      	leaq	0x186ea0(%rip), %rax    # 0x14e9080
+ 13621e0:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 13621e5:      	movq	0x28(%rsp), %rcx
+ 13621ea:      	testq	%rcx, %rcx
+ 13621ed:      	je	0x13621f5 <.text+0xf611f5>
+ 13621ef:      	movq	0x8(%rcx), %r8
+ 13621f3:      	jmp	0x13621f8 <.text+0xf611f8>
+ 13621f5:      	movq	%rcx, %r8
+ 13621f8:      	movq	%r8, (%rax)
+ 13621fb:      	cmpl	$0x0, 0x142a6ce(%rip)   # 0x278c8d0
+ 1362202:      	jne	0x136220b <.text+0xf6120b>
+ 1362204:      	movq	0x60(%rsp), %r8
+ 1362209:      	jmp	0x1362218 <.text+0xf61218>
+ 136220b:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 1362210:      	movq	0x60(%rsp), %r8
+ 1362215:      	movq	%r8, (%r11)
+ 1362218:      	movq	%r8, 0x8(%rax)
+ 136221c:      	movq	0x150(%rsp), %r8
+ 1362224:      	movq	0x10(%r8), %rdx
+ 1362228:      	movq	(%rdx), %r8
+ 136222b:      	movl	$0x19, %ebx
+ 1362230:      	movq	%rax, %rcx
+ 1362233:      	movl	$0x1, %edi
+ 1362238:      	movq	%rdi, %rsi
+ 136223b:      	leaq	0x4c4f81(%rip), %rax    # 0x18271c3 STRING_PREFIX 'setFileLogging failed: %vno answer from DNS serverinvalid network interfaceno such network interface'
+ 1362242:      	callq	*%r8
+ 1362245:      	movq	0x28(%rsp), %r8
+ 136224a:      	movq	0x18(%r8), %r8
+ 136224e:      	movq	0x60(%rsp), %rax
+ 1362253:      	callq	*%r8
+ 1362256:      	movq	%rbx, 0x40(%rsp)
+ 136225b:      	movq	%rax, 0xe8(%rsp)
+ 1362263:      	movq	0x160(%rsp), %r8
+ 136226b:      	movq	(%r8), %r8
+ 136226e:      	movq	%r8, 0x48(%rsp)
+ 1362273:      	leaq	0x2c7b66(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 136227a:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 136227f:      	movq	$0xc, 0x8(%rax)
+ 1362287:      	leaq	0x4af3a7(%rip), %r8     # 0x1811635 STRING_PREFIX 'engine_error224.0.0.0/24multipathtcp127.0.0.1:53pointtopointno such hostunknown portCIDR addressinva'
+ 136228e:      	movq	%r8, (%rax)
+ 1362291:      	movq	0x40(%rsp), %r8
+ 1362296:      	movq	%r8, 0x18(%rax)
+ 136229a:      	cmpl	$0x0, 0x142a62f(%rip)   # 0x278c8d0
+ 13622a1:      	jne	0x13622ad <.text+0xf612ad>
+ 13622a3:      	movq	0xe8(%rsp), %rcx
+ 13622ab:      	jmp	0x13622bd <.text+0xf612bd>
+ 13622ad:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 13622b2:      	movq	0xe8(%rsp), %rcx
+ 13622ba:      	movq	%rcx, (%r11)
+ 13622bd:      	movq	%rcx, 0x10(%rax)
+ 13622c1:      	movq	0x48(%rsp), %rcx
+ 13622c6:      	movq	%rcx, 0xc0(%rsp)
+ 13622ce:      	movups	%xmm15, 0xc8(%rsp)
+ 13622d7:      	movq	%rax, 0xd8(%rsp)
+ 13622df:      	leaq	0x311dfa(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 13622e6:      	leaq	0xc0(%rsp), %rbx
+ 13622ee:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 13622f3:      	leaq	0x311de6(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 13622fa:      	movq	%rax, %rcx
+ 13622fd:      	movq	0x158(%rsp), %rax
+ 1362305:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 136230a:      	xorl	%eax, %eax
+ 136230c:      	addq	$0x140, %rsp            # imm = 0x140
+ 1362313:      	popq	%rbp
+ 1362314:      	retq
+ 1362315:      	callq	0x47db80 <.text+0x7cb80> CALL runtime.makemap_small
+ 136231a:      	movq	0x160(%rsp), %rcx
+ 1362322:      	movq	(%rcx), %rcx
+ 1362325:      	movq	%rcx, 0xc0(%rsp)
+ 136232d:      	leaq	0x240c8c(%rip), %rcx    # 0x15a2fc0
+ 1362334:      	movq	%rcx, 0xc8(%rsp)
+ 136233c:      	movq	%rax, 0xd0(%rsp)
+ 1362344:      	movq	$0x0, 0xd8(%rsp)
+ 1362350:      	leaq	0x311d89(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 1362357:      	leaq	0xc0(%rsp), %rbx
+ 136235f:      	nop
+ 1362360:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1362365:      	leaq	0x311d74(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 136236c:      	movq	%rax, %rcx
+ 136236f:      	movq	0x158(%rsp), %rax
+ 1362377:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 136237c:      	nopl	(%rax)
+ 1362380:      	jmp	0x136207e <.text+0xf6107e>
+ 1362385:      	movq	(%rcx), %rcx
+ 1362388:      	movq	%rcx, 0x48(%rsp)
+ 136238d:      	leaq	0x2c7a4c(%rip), %rax    # 0x1629de0 STRING_PREFIX ' '
+ 1362394:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1362399:      	movq	$0xe, 0x8(%rax)
+ 13623a1:      	leaq	0x4b1d98(%rip), %rcx    # 0x1814140 STRING_PREFIX 'unknown_method/etc/protocolsinternal error.in-addr.arpa./proc/net/igmpunknown mode: unexpected EOFus'
+ 13623a8:      	movq	%rcx, (%rax)
+ 13623ab:      	movq	0x160(%rsp), %rcx
+ 13623b3:      	movq	0x10(%rcx), %rdx
+ 13623b7:      	movq	0x8(%rcx), %rcx
+ 13623bb:      	movq	%rdx, 0x18(%rax)
+ 13623bf:      	cmpl	$0x0, 0x142a50a(%rip)   # 0x278c8d0
+ 13623c6:      	je	0x13623d0 <.text+0xf613d0>
+ 13623c8:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 13623cd:      	movq	%rcx, (%r11)
+ 13623d0:      	movq	%rcx, 0x10(%rax)
+ 13623d4:      	movq	0x48(%rsp), %rcx
+ 13623d9:      	movq	%rcx, 0xc0(%rsp)
+ 13623e1:      	movups	%xmm15, 0xc8(%rsp)
+ 13623ea:      	movq	%rax, 0xd8(%rsp)
+ 13623f2:      	leaq	0x311ce7(%rip), %rax    # 0x16740e0 STRING_PREFIX ' '
+ 13623f9:      	leaq	0xc0(%rsp), %rbx
+ 1362401:      	callq	0x419820 <.text+0x18820> CALL runtime.convT
+ 1362406:      	leaq	0x311cd3(%rip), %rbx    # 0x16740e0 STRING_PREFIX ' '
+ 136240d:      	movq	%rax, %rcx
+ 1362410:      	movq	0x158(%rsp), %rax
+ 1362418:      	callq	0x13624c0 <.text+0xf614c0> CALL github.com/interhive/kittencore/daemon.(*client).write
+ 136241d:      	xorl	%eax, %eax
+ 136241f:      	addq	$0x140, %rsp            # imm = 0x140
+ 1362426:      	popq	%rbp
+ 1362427:      	retq
+ 1362428:      	movq	%rdx, %r10
+ 136242b:      	andq	%r9, %rdx
+ 136242e:      	shlq	$0x4, %rdx
+ 1362432:      	movq	0x8(%rdx,%r8), %r11
+ 1362437:      	cmpq	%rdi, %r11
+ 136243a:      	je	0x1362479 <.text+0xf61479>
+ 136243c:      	leaq	0x1(%r10), %rdx
+ 1362440:      	testq	%r11, %r11
+ 1362443:      	jne	0x1362428 <.text+0xf61428>
+ 1362445:      	leaq	0x13d0be4(%rip), %rax   # 0x2733030
+ 136244c:      	movq	%rdi, %rbx
+ 136244f:      	callq	0x419ae0 <.text+0x18ae0> CALL runtime.typeAssert
+ 1362454:      	movq	0x160(%rsp), %rcx
+ 136245c:      	movq	0x158(%rsp), %rbx
+ 1362464:      	movq	0x58(%rsp), %rsi
+ 1362469:      	movq	%rax, %rdx
+ 136246c:      	movq	0x150(%rsp), %rax
+ 1362474:      	jmp	0x1362089 <.text+0xf61089>
+ 1362479:      	movq	0x10(%rdx,%r8), %rdx
+ 136247e:      	nop
+ 1362480:      	jmp	0x1362089 <.text+0xf61089>
+ 1362485:      	movq	%rax, 0x8(%rsp)
+ 136248a:      	movq	%rbx, 0x10(%rsp)
+ 136248f:      	movq	%rcx, 0x18(%rsp)
+ 1362494:      	callq	0x486400 <.text+0x85400> CALL runtime.morestack_noctxt
+ 1362499:      	movq	0x8(%rsp), %rax
+ 136249e:      	movq	0x10(%rsp), %rbx
+ 13624a3:      	movq	0x18(%rsp), %rcx
+ 13624a8:      	jmp	0x13610e0 <.text+0xf600e0>

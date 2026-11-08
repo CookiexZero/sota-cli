@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+case "$1" in
+    upgrade|failed-upgrade|abort-install|abort-upgrade|disappear) exit 0 ;;
+esac
+if [ -n "$1" ] && [ "$1" -ge 1 ] 2>/dev/null; then
+    exit 0
+fi
+
+# Real removal. The state dir holds the last tunnel config (with the
+# outbound's credentials) in start_snapshot.json — don't leave it behind.
+# The sota-connect group stays: removing a group invites gid reuse on files
+# that may still carry it.
+rm -rf /var/lib/sota-connect
+[ -d /run/systemd/system ] && systemctl daemon-reload || true
+command -v update-desktop-database >/dev/null 2>&1 && update-desktop-database /usr/share/applications 2>/dev/null || true
+
+exit 0

@@ -1,0 +1,14 @@
+services:
+  vpn:
+    command:
+      - run
+      - --env-file
+      - /run/secrets/sota-env
+      - --mode
+      - tun
+      - --domain
+      - ${SOTA_TEST_DOMAIN:-example.com}
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN

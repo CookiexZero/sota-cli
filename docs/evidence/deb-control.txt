@@ -1,0 +1,12 @@
+Package: sotavpn
+Version: 1.8.11+1892
+License: Proprietary
+Vendor: none
+Architecture: amd64
+Maintainer: Interhive OÜ <noc@interhive.org>
+Installed-Size: 90651
+Depends: libc6 (>= 2.34), libstdc++6 (>= 11), libayatana-appindicator3-1, libgtk-3-0, libglib2.0-0, libsecret-1-0, libcurl4 | libcurl4t64
+Section: net
+Priority: optional
+Homepage: https://sotavpn.net/
+Description: Sota Connect — secure and private internet connectivity

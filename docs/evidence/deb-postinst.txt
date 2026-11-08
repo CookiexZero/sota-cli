@@ -1,0 +1,76 @@
+#!/bin/bash
+set -e
+
+GROUP=sota-connect
+UNIT=sota-connect.service
+
+# --- Socket group --------------------------------------------------------
+# kittend hands its control socket to root:sota-connect 0660; only members
+# can drive the tunnel (a member can also read the tunnel config, so this is
+# a personal-machine trust model — same as Faygo's). Must exist BEFORE the
+# unit starts: kittend refuses --socket-group for an unknown group.
+getent group "$GROUP" >/dev/null 2>&1 || groupadd --system "$GROUP"
+
+# Add whoever ran the package manager. sudo sets SUDO_USER, pkexec sets
+# PKEXEC_UID; a GUI store going through PackageKit sets neither, and then the
+# user is told what to run instead.
+invoker="${SUDO_USER:-}"
+if [ -z "$invoker" ] && [ -n "${PKEXEC_UID:-}" ]; then
+    invoker="$(getent passwd "$PKEXEC_UID" | cut -d: -f1)"
+fi
+if [ -n "$invoker" ] && [ "$invoker" != root ]; then
+    if ! id -nG "$invoker" 2>/dev/null | tr ' ' '\n' | grep -qx "$GROUP"; then
+        usermod -aG "$GROUP" "$invoker" || true
+        echo "Sota Connect: added $invoker to the '$GROUP' group."
+        echo "Sota Connect: log out and back in before connecting."
+    fi
+else
+    echo "Sota Connect: to connect, run 'sudo usermod -aG $GROUP \$USER', then log out and back in."
+fi
+
+# --- Retire the pre-KittenCore daemon (sotad) ----------------------------
+# Upgrades from <= 1.8.x left: sotad.service (in /etc, which deb keeps as a
+# conffile after the package drops it), its split-tunnel JSON under
+# /var/lib/sota-connect/config (the app keeps that state itself now), and the
+# sota-daemon SELinux module (it labelled binaries that no longer exist; the
+# old postrm deliberately skips removing it on upgrade).
+if [ -d /run/systemd/system ]; then
+    systemctl stop    sotad.service 2>/dev/null || true
+    systemctl disable sotad.service 2>/dev/null || true
+fi
+if [ -f /etc/systemd/system/sotad.service ] &&
+   grep -q '^ExecStart=.*/sotad' /etc/systemd/system/sotad.service; then
+    rm -f /etc/systemd/system/sotad.service
+fi
+rm -rf /var/lib/sota-connect/config
+if command -v semodule >/dev/null 2>&1 && semodule -l 2>/dev/null | grep -q '^sota-daemon\b'; then
+    semodule -r sota-daemon 2>/dev/null || true
+fi
+# sotad left /var/lib/sota-connect root:root 0750, which keeps the GUI out of
+# rule_sets/ («Правила не загружены» with a live daemon). The unit's
+# StateDirectory* fix it when kittend starts — seen on systemd 259 — but older
+# systemd only applies the mode to a directory it creates. Set it here so
+# every supported distro starts from the same state.
+if [ -d /var/lib/sota-connect ]; then
+    chgrp "$GROUP" /var/lib/sota-connect
+    chmod 0710 /var/lib/sota-connect
+fi
+
+# --- Desktop integration (best-effort) -----------------------------------
+command -v update-desktop-database >/dev/null 2>&1 && update-desktop-database /usr/share/applications 2>/dev/null || true
+command -v gtk-update-icon-cache    >/dev/null 2>&1 && gtk-update-icon-cache    /usr/share/icons/hicolor 2>/dev/null || true
+
+# --- Start kittend -------------------------------------------------------
+# restart, not start: on an upgrade the old kittend is still running and
+# `start` would be a no-op, leaving the previous binary in memory. A tunnel
+# that was up goes down with it and stays down: kittend keeps no start
+# snapshot on desktop since KittenCore 0.6.6, and the desktop GUI does not
+# heal a drop (decided for #203) — it shows «Отключено» until the user
+# connects again.
+if [ -d /run/systemd/system ]; then
+    systemctl daemon-reload
+    systemctl enable "$UNIT" || true
+    systemctl restart "$UNIT" || echo "Sota Connect: $UNIT failed to start — see 'journalctl -u $UNIT'"
+fi
+
+exit 0

@@ -1,0 +1,305 @@
+{
+  "daemon.Request": [
+    {
+      "field": "ID",
+      "json_tag": "json:\"id\"",
+      "offset": 0
+    },
+    {
+      "field": "Method",
+      "json_tag": "json:\"method\"",
+      "offset": 8
+    },
+    {
+      "field": "Params",
+      "json_tag": "json:\"params,omitempty\"",
+      "offset": 24
+    }
+  ],
+  "daemon.Response": [
+    {
+      "field": "ID",
+      "json_tag": "json:\"id\"",
+      "offset": 0
+    },
+    {
+      "field": "Result",
+      "json_tag": "json:\"result,omitempty\"",
+      "offset": 8
+    },
+    {
+      "field": "Error",
+      "json_tag": "json:\"error,omitempty\"",
+      "offset": 24
+    }
+  ],
+  "daemon.RPCError": [
+    {
+      "field": "Code",
+      "json_tag": "json:\"code\"",
+      "offset": 0
+    },
+    {
+      "field": "Message",
+      "json_tag": "json:\"message\"",
+      "offset": 16
+    }
+  ],
+  "daemon.HelloParams": [
+    {
+      "field": "ProtocolVersion",
+      "json_tag": "json:\"protocolVersion\"",
+      "offset": 0
+    },
+    {
+      "field": "Token",
+      "json_tag": "json:\"token,omitempty\"",
+      "offset": 8
+    }
+  ],
+  "daemon.HelloResult": [
+    {
+      "field": "CoreVersion",
+      "json_tag": "json:\"coreVersion\"",
+      "offset": 0
+    },
+    {
+      "field": "ProtocolVersion",
+      "json_tag": "json:\"protocolVersion\"",
+      "offset": 16
+    }
+  ],
+  "daemon.StartParams": [
+    {
+      "field": "Configuration",
+      "json_tag": "json:\"configuration\"",
+      "offset": 0
+    },
+    {
+      "field": "LocalOptionsJSON",
+      "json_tag": "json:\"localOptionsJson\"",
+      "offset": 16
+    }
+  ],
+  "daemon.CheckConfigParams": [
+    {
+      "field": "Configuration",
+      "json_tag": "json:\"configuration\"",
+      "offset": 0
+    }
+  ],
+  "daemon.SetFileLoggingParams": [
+    {
+      "field": "Enabled",
+      "json_tag": "json:\"enabled\"",
+      "offset": 0
+    }
+  ],
+  "daemon.StatusResult": [
+    {
+      "field": "State",
+      "json_tag": "json:\"state\"",
+      "offset": 0
+    },
+    {
+      "field": "ConnectedSince",
+      "json_tag": "json:\"connected_since\"",
+      "offset": 8
+    },
+    {
+      "field": "Error",
+      "json_tag": "json:\"error\"",
+      "offset": 16
+    },
+    {
+      "field": "KillSwitch",
+      "json_tag": "json:\"kill_switch,omitempty\"",
+      "offset": 32
+    },
+    {
+      "field": "ProxyPort",
+      "json_tag": "json:\"proxy_port,omitempty\"",
+      "offset": 40
+    }
+  ],
+  "daemon.KillSwitchStatus": [
+    {
+      "field": "Supported",
+      "json_tag": "json:\"supported\"",
+      "offset": 0
+    },
+    {
+      "field": "Armed",
+      "json_tag": "json:\"armed\"",
+      "offset": 1
+    }
+  ],
+  "config.LocalOptions": [
+    {
+      "field": "NetworkStack",
+      "json_tag": "json:\"network_stack\"",
+      "offset": 0
+    },
+    {
+      "field": "MTU",
+      "json_tag": "json:\"mtu\"",
+      "offset": 16
+    },
+    {
+      "field": "IPv6",
+      "json_tag": "json:\"ipv6\"",
+      "offset": 20
+    },
+    {
+      "field": "DNSServers",
+      "json_tag": "json:\"dns_servers\"",
+      "offset": 24
+    },
+    {
+      "field": "DNSStrategy",
+      "json_tag": "json:\"dns_strategy,omitempty\"",
+      "offset": 48
+    },
+    {
+      "field": "BypassLAN",
+      "json_tag": "json:\"bypass_lan\"",
+      "offset": 64
+    },
+    {
+      "field": "StrictRoute",
+      "json_tag": "json:\"strict_route,omitempty\"",
+      "offset": 65
+    },
+    {
+      "field": "MemoryLimit",
+      "json_tag": "json:\"memory_limit\"",
+      "offset": 66
+    },
+    {
+      "field": "SplitTunnel",
+      "json_tag": "json:\"split_tunnel\"",
+      "offset": 72
+    },
+    {
+      "field": "DirectDomains",
+      "json_tag": "json:\"direct_domains,omitempty\"",
+      "offset": 208
+    },
+    {
+      "field": "ProxyDomains",
+      "json_tag": "json:\"proxy_domains,omitempty\"",
+      "offset": 232
+    },
+    {
+      "field": "LocalDomains",
+      "json_tag": "json:\"local_domains,omitempty\"",
+      "offset": 256
+    },
+    {
+      "field": "KillSwitch",
+      "json_tag": "json:\"kill_switch,omitempty\"",
+      "offset": 280
+    },
+    {
+      "field": "KillSwitchAllowApps",
+      "json_tag": "json:\"kill_switch_allow_apps,omitempty\"",
+      "offset": 288
+    },
+    {
+      "field": "InterfaceName",
+      "json_tag": "json:\"interface_name,omitempty\"",
+      "offset": 312
+    },
+    {
+      "field": "InboundMode",
+      "json_tag": "json:\"inbound_mode,omitempty\"",
+      "offset": 328
+    },
+    {
+      "field": "ProxyPort",
+      "json_tag": "json:\"proxy_port,omitempty\"",
+      "offset": 344
+    },
+    {
+      "field": "TunInet4Address",
+      "json_tag": "json:\"tun_inet4_address,omitempty\"",
+      "offset": 352
+    },
+    {
+      "field": "AppleIPv6Blackhole",
+      "json_tag": "json:\"apple_ipv6_blackhole,omitempty\"",
+      "offset": 368
+    },
+    {
+      "field": "ApplePublicDNS",
+      "json_tag": "json:\"apple_public_dns,omitempty\"",
+      "offset": 369
+    }
+  ],
+  "config.SplitTunnel": [
+    {
+      "field": "Mode",
+      "json_tag": "json:\"mode\"",
+      "offset": 0
+    },
+    {
+      "field": "Apps",
+      "json_tag": "json:\"apps,omitempty\"",
+      "offset": 16
+    },
+    {
+      "field": "Routes",
+      "json_tag": "json:\"routes,omitempty\"",
+      "offset": 40
+    },
+    {
+      "field": "Domains",
+      "json_tag": "json:\"domains,omitempty\"",
+      "offset": 64
+    },
+    {
+      "field": "DomainSuffix",
+      "json_tag": "json:\"domain_suffix,omitempty\"",
+      "offset": 88
+    },
+    {
+      "field": "RuleSets",
+      "json_tag": "json:\"rule_sets,omitempty\"",
+      "offset": 112
+    }
+  ],
+  "config.RuleSetRef": [
+    {
+      "field": "Tag",
+      "json_tag": "json:\"tag\"",
+      "offset": 0
+    },
+    {
+      "field": "Path",
+      "json_tag": "json:\"path\"",
+      "offset": 16
+    }
+  ],
+  "config.serverJSON": [
+    {
+      "field": "Type",
+      "json_tag": "json:\"type\"",
+      "offset": 0
+    },
+    {
+      "field": "Tag",
+      "json_tag": "json:\"tag\"",
+      "offset": 16
+    },
+    {
+      "field": "Server",
+      "json_tag": "json:\"server,omitempty\"",
+      "offset": 32
+    },
+    {
+      "field": "Detour",
+      "json_tag": "json:\"detour,omitempty\"",
+      "offset": 48
+    }
+  ]
+}

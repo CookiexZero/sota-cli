@@ -1,0 +1,10 @@
+*
+!go.mod
+!cmd/
+!cmd/**
+!internal/
+!internal/**
+!vendor/
+!vendor/kittend/
+!vendor/kittend/**
+!core.lock.json

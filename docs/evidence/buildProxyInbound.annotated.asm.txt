@@ -1,0 +1,215 @@
+
+/var/folders/bh/72_ydyss1h7f3k0mb0dwk0740000gn/T/sota-deb-ayde7k58/data/usr/libexec/sota-connect/kittend:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000401000 <.text>:
+ 13537c0:      	leaq	-0x68(%rsp), %r12
+ 13537c5:      	cmpq	0x10(%r14), %r12
+ 13537c9:      	jbe	0x1353bc8 <.text+0xf52bc8>
+ 13537cf:      	pushq	%rbp
+ 13537d0:      	movq	%rsp, %rbp
+ 13537d3:      	subq	$0xe0, %rsp
+ 13537da:      	movq	%rax, 0x268(%rsp)
+ 13537e2:      	movq	%rbx, 0x270(%rsp)
+ 13537ea:      	movups	%xmm15, 0x30(%rsp)
+ 13537f0:      	movups	%xmm15, 0x40(%rsp)
+ 13537f6:      	movups	%xmm15, 0x50(%rsp)
+ 13537fc:      	cmpw	$0x0, 0x248(%rsp)
+ 1353805:      	je	0x1353b69 <.text+0xf52b69>
+ 135380b:      	movq	%rbx, 0x270(%rsp)
+ 1353813:      	movq	%rax, 0x268(%rsp)
+ 135381b:      	nopl	(%rax,%rax)
+ 1353820:      	callq	0x47db80 <.text+0x7cb80> CALL runtime.makemap_small
+ 1353825:      	movq	%rax, 0x68(%rsp)
+ 135382a:      	movq	%rax, %rbx
+ 135382d:      	leaq	0x4b38c8(%rip), %rcx    # 0x18070fc STRING_PREFIX 'typedownlog'
+ 1353834:      	movl	$0x4, %edi
+ 1353839:      	leaq	0x24f780(%rip), %rax    # 0x15a2fc0
+ 1353840:      	callq	0x40fa80 <.text+0xea80> CALL runtime.mapassign_faststr
+ 1353845:      	leaq	0x16e054(%rip), %rcx    # 0x14c18a0
+ 135384c:      	movq	%rcx, (%rax)
+ 135384f:      	cmpl	$0x0, 0x143907a(%rip)   # 0x278c8d0
+ 1353856:      	je	0x1353868 <.text+0xf52868>
+ 1353858:      	movq	0x8(%rax), %rdx
+ 135385c:      	nopl	(%rax)
+ 1353860:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 1353865:      	movq	%rdx, (%r11)
+ 1353868:      	leaq	0x74ecf1(%rip), %rdx    # 0x1aa2560
+ 135386f:      	movq	%rdx, 0x8(%rax)
+ 1353873:      	leaq	0x24f746(%rip), %rax    # 0x15a2fc0
+ 135387a:      	movq	0x68(%rsp), %rbx
+ 135387f:      	leaq	0x4b3261(%rip), %rcx    # 0x1806ae7
+ 1353886:      	movl	$0x3, %edi
+ 135388b:      	callq	0x40fa80 <.text+0xea80> CALL runtime.mapassign_faststr
+ 1353890:      	leaq	0x16e009(%rip), %rdx    # 0x14c18a0
+ 1353897:      	movq	%rdx, (%rax)
+ 135389a:      	cmpl	$0x0, 0x143902f(%rip)   # 0x278c8d0
+ 13538a1:      	je	0x13538af <.text+0xf528af>
+ 13538a3:      	movq	0x8(%rax), %rsi
+ 13538a7:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 13538ac:      	movq	%rsi, (%r11)
+ 13538af:      	leaq	0x74ecba(%rip), %rdx    # 0x1aa2570
+ 13538b6:      	movq	%rdx, 0x8(%rax)
+ 13538ba:      	leaq	0x24f6ff(%rip), %rax    # 0x15a2fc0
+ 13538c1:      	movq	0x68(%rsp), %rbx
+ 13538c6:      	leaq	0x4b5544(%rip), %rcx    # 0x1808e11
+ 13538cd:      	movl	$0x6, %edi
+ 13538d2:      	callq	0x40fa80 <.text+0xea80> CALL runtime.mapassign_faststr
+ 13538d7:      	leaq	0x16dfc2(%rip), %rdx    # 0x14c18a0
+ 13538de:      	movq	%rdx, (%rax)
+ 13538e1:      	cmpl	$0x0, 0x1438fe8(%rip)   # 0x278c8d0
+ 13538e8:      	je	0x13538f6 <.text+0xf528f6>
+ 13538ea:      	movq	0x8(%rax), %rcx
+ 13538ee:      	callq	0x488140 <.text+0x87140> CALL runtime.gcWriteBarrier1
+ 13538f3:      	movq	%rcx, (%r11)
+ 13538f6:      	leaq	0x74ec83(%rip), %rcx    # 0x1aa2580
+ 13538fd:      	movq	%rcx, 0x8(%rax)
+ 1353901:      	movzwl	0x248(%rsp), %eax
+ 1353909:      	callq	0x419920 <.text+0x18920> CALL runtime.convT16
+ 135390e:      	movq	%rax, 0x60(%rsp)
+ 1353913:      	leaq	0x24f6a6(%rip), %rax    # 0x15a2fc0
+ 135391a:      	movq	0x68(%rsp), %rbx
+ 135391f:      	leaq	0x4bc788(%rip), %rcx    # 0x18100ae STRING_PREFIX 'listen_porthello firstsubmissionsnil contextsetnonblocki/o timeoutraw-controlparse errorshort writea'
+ 1353926:      	movl	$0xb, %edi
+ 135392b:      	callq	0x40fa80 <.text+0xea80> CALL runtime.mapassign_faststr
+ 1353930:      	leaq	0x16e069(%rip), %rcx    # 0x14c19a0
+ 1353937:      	movq	%rcx, (%rax)
+ 135393a:      	cmpl	$0x0, 0x1438f8f(%rip)   # 0x278c8d0
+ 1353941:      	jne	0x135394a <.text+0xf5294a>
+ 1353943:      	movq	0x60(%rsp), %rsi
+ 1353948:      	jmp	0x135395f <.text+0xf5295f>
+ 135394a:      	movq	0x8(%rax), %rcx
+ 135394e:      	callq	0x488160 <.text+0x87160> CALL runtime.gcWriteBarrier2
+ 1353953:      	movq	0x60(%rsp), %rsi
+ 1353958:      	movq	%rsi, (%r11)
+ 135395b:      	movq	%rcx, 0x8(%r11)
+ 135395f:      	movq	%rsi, 0x8(%rax)
+ 1353963:      	movq	0x13daa56(%rip), %rdx   # 0x272e3c0
+ 135396a:      	movq	(%rdx), %rcx
+ 135396d:      	leaq	0x24f64c(%rip), %rax    # 0x15a2fc0
+ 1353974:      	movq	0x68(%rsp), %rbx
+ 1353979:      	callq	*%rcx
+ 135397b:      	nopl	(%rax,%rax)
+ 1353980:      	testq	%rdi, %rdi
+ 1353983:      	je	0x13539ff <.text+0xf529ff>
+ 1353985:      	movups	%xmm15, 0xd0(%rsp)
+ 135398e:      	je	0x1353994 <.text+0xf52994>
+ 1353990:      	movq	0x8(%rdi), %rdi
+ 1353994:      	movq	%rdi, 0xd0(%rsp)
+ 135399c:      	movq	%rsi, 0xd8(%rsp)
+ 13539a4:      	leaq	0x4d37ff(%rip), %rax    # 0x18271aa STRING_PREFIX 'marshal proxy inbound: %wsetFileLogging failed: %vno answer from DNS serverinvalid network interface'
+ 13539ab:      	movl	$0x19, %ebx
+ 13539b0:      	leaq	0xd0(%rsp), %rcx
+ 13539b8:      	movl	$0x1, %edi
+ 13539bd:      	movq	%rdi, %rsi
+ 13539c0:      	callq	0x518a20 <.text+0x117a20> CALL fmt.Errorf
+ 13539c5:      	movups	%xmm15, 0x30(%rsp)
+ 13539cb:      	movups	%xmm15, 0x40(%rsp)
+ 13539d1:      	movups	%xmm15, 0x50(%rsp)
+ 13539d7:      	movq	0x30(%rsp), %rdx
+ 13539dc:      	movq	0x40(%rsp), %rcx
+ 13539e1:      	movq	0x58(%rsp), %r8
+ 13539e6:      	xorl	%edi, %edi
+ 13539e8:      	xorl	%esi, %esi
+ 13539ea:      	movq	%rax, %r9
+ 13539ed:      	movq	%rbx, %r10
+ 13539f0:      	movq	%rdx, %rax
+ 13539f3:      	movq	%rdi, %rbx
+ 13539f6:      	addq	$0xe0, %rsp
+ 13539fd:      	popq	%rbp
+ 13539fe:      	retq
+ 13539ff:      	movups	%xmm15, 0xa0(%rsp)
+ 1353a08:      	movups	%xmm15, 0xb0(%rsp)
+ 1353a11:      	movups	%xmm15, 0xc0(%rsp)
+ 1353a1a:      	movq	%rax, %rdi
+ 1353a1d:      	movq	%rbx, %rsi
+ 1353a20:      	movq	%rcx, %r8
+ 1353a23:      	leaq	0x75a9b6(%rip), %rax    # 0x1aae3e0
+ 1353a2a:      	movq	0x268(%rsp), %rbx
+ 1353a32:      	movq	0x270(%rsp), %rcx
+ 1353a3a:      	callq	0x135a000 <.text+0xf59000> CALL github.com/sagernet/sing/common/json.UnmarshalExtendedContext[go.shape.struct { Type string "json:\"type\""; Tag string "json:\"tag,omitempty\""; Options interface {} "json:\"-\"" }]
+ 1353a3f:      	movq	%rax, 0x70(%rsp)
+ 1353a44:      	movq	%rbx, 0x78(%rsp)
+ 1353a49:      	movq	%rcx, 0x80(%rsp)
+ 1353a51:      	movq	%rdi, 0x88(%rsp)
+ 1353a59:      	movq	%rsi, 0x90(%rsp)
+ 1353a61:      	movq	%r8, 0x98(%rsp)
+ 1353a69:      	movups	0x70(%rsp), %xmm0
+ 1353a6e:      	movups	%xmm0, 0xa0(%rsp)
+ 1353a76:      	movups	0x80(%rsp), %xmm0
+ 1353a7e:      	movups	%xmm0, 0xb0(%rsp)
+ 1353a86:      	movups	0x90(%rsp), %xmm0
+ 1353a8e:      	movups	%xmm0, 0xc0(%rsp)
+ 1353a96:      	testq	%r9, %r9
+ 1353a99:      	je	0x1353b15 <.text+0xf52b15>
+ 1353a9b:      	movups	%xmm15, 0xd0(%rsp)
+ 1353aa4:      	je	0x1353aaa <.text+0xf52aaa>
+ 1353aa6:      	movq	0x8(%r9), %r9
+ 1353aaa:      	movq	%r9, 0xd0(%rsp)
+ 1353ab2:      	movq	%r10, 0xd8(%rsp)
+ 1353aba:      	leaq	0x4d1c29(%rip), %rax    # 0x18256ea STRING_PREFIX 'decode proxy inbound: %wmarshal resolve rule: %wtun_inet4_address %q: %wtun_inet4_address %q: %sBuff'
+ 1353ac1:      	movl	$0x18, %ebx
+ 1353ac6:      	leaq	0xd0(%rsp), %rcx
+ 1353ace:      	movl	$0x1, %edi
+ 1353ad3:      	movq	%rdi, %rsi
+ 1353ad6:      	callq	0x518a20 <.text+0x117a20> CALL fmt.Errorf
+ 1353adb:      	movups	%xmm15, 0x30(%rsp)
+ 1353ae1:      	movups	%xmm15, 0x40(%rsp)
+ 1353ae7:      	movups	%xmm15, 0x50(%rsp)
+ 1353aed:      	movq	0x30(%rsp), %rdx
+ 1353af2:      	movq	0x40(%rsp), %rcx
+ 1353af7:      	movq	0x58(%rsp), %r8
+ 1353afc:      	xorl	%edi, %edi
+ 1353afe:      	xorl	%esi, %esi
+ 1353b00:      	movq	%rax, %r9
+ 1353b03:      	movq	%rbx, %r10
+ 1353b06:      	movq	%rdx, %rax
+ 1353b09:      	movq	%rdi, %rbx
+ 1353b0c:      	addq	$0xe0, %rsp
+ 1353b13:      	popq	%rbp
+ 1353b14:      	retq
+ 1353b15:      	movups	0xa0(%rsp), %xmm0
+ 1353b1d:      	movups	%xmm0, 0x30(%rsp)
+ 1353b22:      	movups	0xb0(%rsp), %xmm0
+ 1353b2a:      	movups	%xmm0, 0x40(%rsp)
+ 1353b2f:      	movups	0xc0(%rsp), %xmm0
+ 1353b37:      	movups	%xmm0, 0x50(%rsp)
+ 1353b3c:      	movq	0x30(%rsp), %rax
+ 1353b41:      	movq	0x38(%rsp), %rbx
+ 1353b46:      	movq	0x40(%rsp), %rcx
+ 1353b4b:      	movq	0x48(%rsp), %rdi
+ 1353b50:      	movq	0x50(%rsp), %rsi
+ 1353b55:      	movq	0x58(%rsp), %r8
+ 1353b5a:      	xorl	%r9d, %r9d
+ 1353b5d:      	xorl	%r10d, %r10d
+ 1353b60:      	addq	$0xe0, %rsp
+ 1353b67:      	popq	%rbp
+ 1353b68:      	retq
+ 1353b69:      	leaq	0x265030(%rip), %rax    # 0x15b8ba0
+ 1353b70:      	callq	0x41d4a0 <.text+0x1c4a0> CALL runtime.newobject
+ 1353b75:      	movq	$0x1f, 0x8(%rax)
+ 1353b7d:      	leaq	0x4dea17(%rip), %rcx    # 0x183259b STRING_PREFIX 'proxy inbound mode needs a portmarshal rule-set split rule: %winvalid network interface indexsotypeT'
+ 1353b84:      	movq	%rcx, (%rax)
+ 1353b87:      	movups	%xmm15, 0x30(%rsp)
+ 1353b8d:      	movups	%xmm15, 0x40(%rsp)
+ 1353b93:      	movups	%xmm15, 0x50(%rsp)
+ 1353b99:      	movq	0x30(%rsp), %rcx
+ 1353b9e:      	movq	0x40(%rsp), %rdx
+ 1353ba3:      	movq	0x58(%rsp), %r8
+ 1353ba8:      	xorl	%ebx, %ebx
+ 1353baa:      	movq	%rbx, %rdi
+ 1353bad:      	xorl	%esi, %esi
+ 1353baf:      	leaq	0x75a3aa(%rip), %r9     # 0x1aadf60
+ 1353bb6:      	movq	%rax, %r10
+ 1353bb9:      	movq	%rcx, %rax
+ 1353bbc:      	movq	%rdx, %rcx
+ 1353bbf:      	addq	$0xe0, %rsp
+ 1353bc6:      	popq	%rbp
+ 1353bc7:      	retq
+ 1353bc8:      	movq	%rax, 0x180(%rsp)
+ 1353bd0:      	movq	%rbx, 0x188(%rsp)
+ 1353bd8:      	callq	0x486400 <.text+0x85400> CALL runtime.morestack_noctxt
+ 1353bdd:      	movq	0x180(%rsp), %rax
+ 1353be5:      	movq	0x188(%rsp), %rbx
+ 1353bed:      	jmp	0x13537c0 <.text+0xf527c0>

@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+# Real removal only (see the table above the hooks): on an upgrade the new
+# package's postinst restarts the daemon, and on RPM it has ALREADY done so
+# by the time this runs.
+case "$1" in
+    upgrade|failed-upgrade|deconfigure) exit 0 ;;
+esac
+if [ -n "$1" ] && [ "$1" -ge 1 ] 2>/dev/null; then
+    exit 0
+fi
+if [ -d /run/systemd/system ]; then
+    systemctl stop    sota-connect.service 2>/dev/null || true
+    systemctl disable sota-connect.service 2>/dev/null || true
+fi
+exit 0

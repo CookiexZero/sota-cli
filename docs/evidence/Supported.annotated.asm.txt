@@ -1,0 +1,8 @@
+
+/var/folders/bh/72_ydyss1h7f3k0mb0dwk0740000gn/T/sota-deb-ayde7k58/data/usr/libexec/sota-connect/kittend:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000401000 <.text>:
+ 1362da0:      	xorl	%eax, %eax
+ 1362da2:      	retq

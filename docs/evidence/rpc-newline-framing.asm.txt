@@ -1,0 +1,78 @@
+
+/var/folders/bh/72_ydyss1h7f3k0mb0dwk0740000gn/T/sota-deb-ayde7k58/data/usr/libexec/sota-connect/kittend:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000401000 <.text>:
+ 13624c0:      	cmpq	0x10(%r14), %rsp
+ 13624c4:      	jbe	0x1362541 <.text+0xf61541>
+ 13624c6:      	pushq	%rbp
+ 13624c7:      	movq	%rsp, %rbp
+ 13624ca:      	subq	$0x40, %rsp
+ 13624ce:      	movq	%rbx, 0x58(%rsp)
+ 13624d3:      	movq	%rcx, 0x60(%rsp)
+ 13624d8:      	movq	%rax, 0x50(%rsp)
+ 13624dd:      	movq	%rbx, %rax
+ 13624e0:      	movq	%rcx, %rbx
+ 13624e3:      	callq	0x777840 <.text+0x376840>
+ 13624e8:      	testq	%rdi, %rdi
+ 13624eb:      	je	0x13624f5 <.text+0xf614f5>
+ 13624ed:      	xorl	%ebx, %ebx
+ 13624ef:      	xorl	%ecx, %ecx
+ 13624f1:      	xorl	%eax, %eax
+ 13624f3:      	jmp	0x1362517 <.text+0xf61517>
+ 13624f5:      	incq	%rbx
+ 13624f8:      	cmpq	%rbx, %rcx
+ 13624fb:      	jae	0x136250e <.text+0xf6150e>
+ 13624fd:      	movl	$0x1, %edi
+ 1362502:      	leaq	0x15f417(%rip), %rsi    # 0x14c1920
+ 1362509:      	callq	0x482560 <.text+0x81560>
+ 136250e:      	movb	$0xa, -0x1(%rbx,%rax)
+ 1362513:      	xorl	%edi, %edi
+ 1362515:      	xorl	%esi, %esi
+ 1362517:      	testq	%rdi, %rdi
+ 136251a:      	je	0x1362528 <.text+0xf61528>
+ 136251c:      	movq	%rdi, %rax
+ 136251f:      	movq	%rsi, %rbx
+ 1362522:      	addq	$0x40, %rsp
+ 1362526:      	popq	%rbp
+ 1362527:      	retq
+ 1362528:      	movq	%rcx, %rdi
+ 136252b:      	movq	%rbx, %rcx
+ 136252e:      	movq	%rax, %rbx
+ 1362531:      	movq	0x50(%rsp), %rax
+ 1362536:      	callq	0x1362580 <.text+0xf61580>
+ 136253b:      	addq	$0x40, %rsp
+ 136253f:      	popq	%rbp
+ 1362540:      	retq
+ 1362541:      	movq	%rax, 0x8(%rsp)
+ 1362546:      	movq	%rbx, 0x10(%rsp)
+ 136254b:      	movq	%rcx, 0x18(%rsp)
+ 1362550:      	callq	0x486400 <.text+0x85400>
+ 1362555:      	movq	0x8(%rsp), %rax
+ 136255a:      	movq	0x10(%rsp), %rbx
+ 136255f:      	movq	0x18(%rsp), %rcx
+ 1362564:      	jmp	0x13624c0 <.text+0xf614c0>
+ 1362569:      	int3
+ 136256a:      	int3
+ 136256b:      	int3
+ 136256c:      	int3
+ 136256d:      	int3
+ 136256e:      	int3
+ 136256f:      	int3
+ 1362570:      	int3
+ 1362571:      	int3
+ 1362572:      	int3
+ 1362573:      	int3
+ 1362574:      	int3
+ 1362575:      	int3
+ 1362576:      	int3
+ 1362577:      	int3
+ 1362578:      	int3
+ 1362579:      	int3
+ 136257a:      	int3
+ 136257b:      	int3
+ 136257c:      	int3
+ 136257d:      	int3
+ 136257e:      	int3
+ 136257f:      	int3
