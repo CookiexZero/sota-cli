@@ -100,6 +100,5 @@ Verified on 2026-11-08 through OrbStack: real Sota access-key authentication, se
 - Fatal core errors cause `run` to exit, allowing Compose's restart policy to fetch a fresh configuration. A normal `disconnect` leaves the process running. Full network-change recovery and automatic refresh before configuration expiry are not implemented.
 - API hosts are seeded from the official client's current actualization payload. Automatic signed actualization refresh is not implemented; endpoint changes may require an update. Standard HTTPS certificate and hostname verification remain enabled.
 - The server configuration adapter supports concrete outbounds and linear detours. Grouped detours and standalone WireGuard endpoint configurations are not supported. Real-network acceptance currently covers VLESS; Hysteria2 is selectable but has not been acceptance-tested.
-- The core is proprietary. Its binaries are downloaded separately and are not committed to this repository.
+- The official Sota core is downloaded and verified during build preparation, then included in the Docker image. Core binaries are excluded from Git.
 
-See [implementation notes](docs/IMPLEMENTATION.md) and the original [package research](docs/RESEARCH_AND_PLAN.md).
