@@ -25,6 +25,14 @@ docker compose exec vpn sota status
 docker compose exec vpn sota servers --env-file /run/secrets/sota-env
 ```
 
+The build cross-compiles the CLI and prepares target packages using native build stages, so building both architectures does not require QEMU. Running a foreign-architecture image still requires emulation or a matching host. Loading both architectures with `--load` requires Docker's containerd image store; with a classic image store, build only the host architecture or publish the multi-platform image with `--push`.
+
+To build only for the current machine:
+
+```sh
+docker build -t sota-cli:dev .
+```
+
 The fetch script checks package and executable SHA-256 hashes against [core.lock.json](core.lock.json). If the CDN's `latest` package changes, it fails instead of silently changing the core. Both pinned packages are Sota `1.8.11+1892`.
 
 The `.env` file is mounted as a Compose secret. It is excluded from Git and the Docker build context. The state volume preserves the device ID across restarts. `run` uses the supplied key in memory; `login` explicitly saves a verified key with mode `0600`.
